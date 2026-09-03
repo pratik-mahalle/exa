@@ -51,7 +51,7 @@ section { scroll-margin-top: 100px; }
 .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; margin-top: 52px; color: var(--muted); font-size: 1rem; line-height: 1.75; }
 .intro-grid p { margin: 0; }
 .intro-grid a { color: var(--ink); text-decoration: underline; text-decoration-color: #9bc747; text-underline-offset: 3px; font-weight: 650; }
-.highlights-section h2, .work-section h2, .writing-section h2, .now-section h2 { margin: 0; font-family: var(--serif); font-size: clamp(2.2rem, 5vw, 4.2rem); font-weight: 500; letter-spacing: -.05em; line-height: 1; }
+.highlights-section h2, .work-section h2, .articles-section h2, .talks-section h2, .now-section h2 { margin: 0; font-family: var(--serif); font-size: clamp(2.2rem, 5vw, 4.2rem); font-weight: 500; letter-spacing: -.05em; line-height: 1; }
 .highlights-list { margin: 45px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
 .highlights-list li { display: grid; grid-template-columns: 54px 1fr; gap: 18px; align-items: baseline; padding: 19px 0; border-bottom: 1px solid var(--line); }
 .highlights-list span { color: #ef562f; font: italic .8rem var(--serif); }
@@ -81,8 +81,8 @@ section { scroll-margin-top: 100px; }
 .tag-row { display: flex; flex-wrap: wrap; gap: 7px; }
 .tag-row span { padding: 6px 9px; border: 1px solid var(--line); border-radius: 999px; font-size: .61rem; font-weight: 750; text-transform: uppercase; }
 
-.writing-section { padding: 110px 0 130px; border-top: 1px solid var(--line); }
-.writing-heading { margin-bottom: 36px; }
+.articles-section { padding: 110px 0 130px; border-top: 1px solid var(--line); }
+.articles-heading { margin-bottom: 36px; }
 .all-writing-link { margin-bottom: 4px; padding-bottom: 5px; border-bottom: 1px solid var(--ink); font-size: .78rem; font-weight: 750; }
 .article-list { border-top: 1px solid var(--ink); }
 .article-row { display: grid; grid-template-columns: 50px 1fr auto; gap: 24px; padding: 30px 4px; border-bottom: 1px solid var(--line); transition: padding .25s ease, background .25s ease; }
@@ -93,6 +93,27 @@ section { scroll-margin-top: 100px; }
 .article-copy > p { max-width: 700px; margin: 12px 0 0; color: var(--muted); font-size: .91rem; line-height: 1.6; }
 .article-arrow { font-size: 1.2rem; transition: transform .2s ease; }
 .article-row:hover .article-arrow { transform: translate(3px,-3px); }
+
+.talks-section { padding: 110px 0 130px; border-top: 1px solid var(--line); }
+.talks-heading { display: grid; grid-template-columns: 180px 1fr; gap: 40px; margin-bottom: 52px; }
+.talks-heading > div > p { max-width: 590px; margin: 24px 0 0; color: var(--muted); font-size: 1rem; line-height: 1.7; }
+.talk-list { display: grid; gap: 0; border-top: 1px solid var(--ink); }
+.talk-row { display: grid; grid-template-columns: 235px 1fr; gap: clamp(28px, 6vw, 72px); padding: 30px 0; border-bottom: 1px solid var(--line); }
+.talk-poster { position: relative; min-height: 165px; display: grid; place-items: center; overflow: hidden; border: 1px solid var(--ink); background: var(--orange); transition: transform .25s ease, box-shadow .25s ease; }
+.talk-blue .talk-poster { background: var(--blue); }
+.talk-lime .talk-poster { background: var(--green); }
+.talk-row:hover .talk-poster { transform: rotate(-2deg) translate(-3px,-3px); box-shadow: 6px 6px 0 var(--ink); }
+.talk-poster > span { position: relative; z-index: 2; font-family: var(--serif); font-size: 4.7rem; letter-spacing: -.09em; }
+.talk-poster i { position: absolute; width: 130px; height: 130px; border: 1px solid var(--ink); border-radius: 50%; }
+.talk-poster i::before { content: ""; position: absolute; inset: 25px; border: 1px dashed var(--ink); border-radius: 50%; }
+.talk-poster b { position: absolute; right: 8px; bottom: 8px; padding: 5px 7px; border: 1px solid var(--ink); background: var(--paper); font-size: .53rem; letter-spacing: .1em; }
+.talk-copy { align-self: center; }
+.talk-meta { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 10px; color: var(--muted); font-size: .65rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
+.talk-copy h3 { max-width: 650px; margin: 0; font-family: var(--serif); font-size: clamp(1.7rem, 3.3vw, 2.65rem); font-weight: 500; letter-spacing: -.04em; line-height: 1.05; }
+.talk-copy > p { max-width: 650px; margin: 13px 0 18px; color: var(--muted); font-size: .91rem; line-height: 1.6; }
+.talk-link { font-size: .7rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.talk-link b { display: inline-block; margin-left: 4px; transition: transform .2s ease; }
+.talk-row:hover .talk-link b { transform: translate(3px,-3px); }
 
 .now-copy > p { max-width: 680px; margin: 38px 0 0; color: var(--muted); font-size: 1.08rem; line-height: 1.75; }
 .ticker { margin-top: 45px; padding: 17px 0; display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -115,7 +136,8 @@ footer p { margin: 0; } footer p:nth-child(2) { text-align: center; } footer a {
   .hero { grid-template-columns: 1fr; gap: 70px; padding-top: 130px; } .portrait-wrap { max-width: 280px; } .hero-copy { max-width: 620px; }
   .intro-section, .highlights-section, .now-section, .contact-section { grid-template-columns: 1fr; gap: 32px; padding: 80px 0; }
   .project-grid { grid-template-columns: 1fr; } .section-heading { align-items: start; flex-direction: column; }
-  .writing-section { padding: 80px 0; }
+  .articles-section, .talks-section { padding: 80px 0; }
+  .talks-heading { grid-template-columns: 1fr; gap: 32px; }
 }
 @media (max-width: 520px) {
   .site-shell { width: min(calc(100% - 32px), 1060px); } .nav-wrap { width: calc(100% - 24px); top: 12px; }
@@ -123,6 +145,8 @@ footer p { margin: 0; } footer p:nth-child(2) { text-align: center; } footer a {
   .intro-grid { grid-template-columns: 1fr; gap: 18px; } .project-visual { height: 180px; }
   .article-row { grid-template-columns: 30px 1fr auto; gap: 10px; }
   .article-copy > p { display: none; }
+  .talk-row { grid-template-columns: 1fr; gap: 22px; }
+  .talk-poster { min-height: 150px; }
   footer { grid-template-columns: 1fr auto; gap: 8px; } footer p:nth-child(2) { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
