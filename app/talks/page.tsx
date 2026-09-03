@@ -43,7 +43,7 @@ export default function TalksPage() {
           <p>Conversations and sessions about the systems we build, the failure modes we inherit, and the context that helps teams operate both.</p>
         </header>
 
-        <section className="talk-group" aria-labelledby="hosted-series">
+        <section className="talk-group" id="after-hours" aria-labelledby="hosted-series">
           <div className="talk-group-heading">
             <p className="section-index">BEHIND THE MIC</p>
             <h2 id="hosted-series">Hosted series</h2>
