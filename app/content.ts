@@ -115,6 +115,18 @@ export const talks: Talk[] = [
     badge: "TALK",
   },
   {
+    title: "Chaos Engineering for Security: Breaking Systems to Strengthen Defenses",
+    event: "OpenSSF Community Day India",
+    date: "Aug 4, 2025",
+    description: "How controlled failures and simulated attacks can expose security weaknesses before adversaries do, with practical examples using Chaos Mesh, LitmusChaos, and KubeArmor.",
+    href: "https://www.youtube.com/watch?v=WH-8M2DB_vQ",
+    color: "pink",
+    status: "Past",
+    badge: "TALK",
+    image: "/talks/openssf-community-day-india.jpg",
+    imageAlt: "OpenSSF Community Day India title card for Pratik Mahalle's security chaos engineering talk",
+  },
+  {
     title: "Kubernetes: From Google Borg to Cloud Native",
     event: "30 CNCF Tools in 30 Days",
     date: "Video",
