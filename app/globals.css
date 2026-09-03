@@ -102,11 +102,13 @@ section { scroll-margin-top: 100px; }
 .talk-blue .talk-poster { background: var(--blue); }
 .talk-lime .talk-poster { background: var(--green); }
 .talk-pink .talk-poster { background: var(--pink); }
+.talk-poster-image { min-height: 0; aspect-ratio: 16 / 9; }
+.talk-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .talk-row:hover .talk-poster { transform: rotate(-2deg) translate(-3px,-3px); box-shadow: 6px 6px 0 var(--ink); }
 .talk-poster > span { position: relative; z-index: 2; font-family: var(--serif); font-size: 4.7rem; letter-spacing: -.09em; }
 .talk-poster i { position: absolute; width: 130px; height: 130px; border: 1px solid var(--ink); border-radius: 50%; }
 .talk-poster i::before { content: ""; position: absolute; inset: 25px; border: 1px dashed var(--ink); border-radius: 50%; }
-.talk-poster b { position: absolute; right: 8px; bottom: 8px; padding: 5px 7px; border: 1px solid var(--ink); background: var(--paper); font-size: .53rem; letter-spacing: .1em; }
+.talk-poster b { position: absolute; z-index: 2; right: 8px; bottom: 8px; padding: 5px 7px; border: 1px solid var(--ink); background: var(--paper); font-size: .53rem; letter-spacing: .1em; }
 .talk-copy { align-self: center; }
 .talk-meta { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 10px; color: var(--muted); font-size: .65rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
 .talk-copy h2, .talk-copy h3 { max-width: 650px; margin: 0; font-family: var(--serif); font-size: clamp(1.7rem, 3.3vw, 2.65rem); font-weight: 500; letter-spacing: -.04em; line-height: 1.05; }

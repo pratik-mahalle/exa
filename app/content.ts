@@ -36,7 +36,20 @@ export const articles = [
   },
 ];
 
-export const talks = [
+export type Talk = {
+  title: string;
+  event: string;
+  date: string;
+  description: string;
+  href: string;
+  color: string;
+  status: string;
+  badge: string;
+  image?: string;
+  imageAlt?: string;
+};
+
+export const talks: Talk[] = [
   {
     title: "After Hours by RelOps Studio",
     event: "Hosted series",
@@ -46,6 +59,8 @@ export const talks = [
     color: "pink",
     status: "Hosted",
     badge: "HOST",
+    image: "/talks/after-hours.jpg",
+    imageAlt: "Pratik Mahalle hosting the first episode of After Hours with Eeshaan Sawant",
   },
   {
     title: "What Happens When Your AI SRE Has a Bad Day",
@@ -76,6 +91,8 @@ export const talks = [
     color: "orange",
     status: "Past",
     badge: "TALK",
+    image: "/talks/aaif-pune.jpg",
+    imageAlt: "AAIF Agentic AI Pune Connect event poster",
   },
   {
     title: "Debugging Knowledge Is Infrastructure Too",

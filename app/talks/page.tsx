@@ -14,8 +14,14 @@ export default function TalksPage() {
 
   const renderTalk = (talk: (typeof talks)[number], index: number, offset = 0) => (
     <a className={`talk-row talk-${talk.color}`} href={talk.href} key={talk.title} target="_blank" rel="noreferrer">
-      <div className="talk-poster" aria-hidden="true">
-        <span>{String(index + 1 + offset).padStart(2, "0")}</span><i /><b>{talk.badge}</b>
+      <div className={`talk-poster${talk.image ? " talk-poster-image" : ""}`} aria-hidden={talk.image ? undefined : true}>
+        {talk.image ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img className="talk-photo" src={talk.image} alt={talk.imageAlt ?? ""} />
+        ) : (
+          <><span>{String(index + 1 + offset).padStart(2, "0")}</span><i /></>
+        )}
+        <b>{talk.badge}</b>
       </div>
       <div className="talk-copy">
         <div className="talk-meta"><span>{talk.event}</span><span>{talk.date}</span></div>
