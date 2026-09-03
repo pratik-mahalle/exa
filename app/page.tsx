@@ -26,6 +26,7 @@ const projects = [
 const highlights = [
   "Building at the intersection of infrastructure, AI agents, and developer experience.",
   "A member of the OpenTelemetry community, contributing to open-source observability.",
+  "Hosting After Hours by RelOps Studio — candid conversations about the parts of a tech career that rarely make the polished version.",
   "Organised meetups and hackathons that brought Pune's developer community together.",
   "Explaining complex infrastructure ideas through talks, writing, demos, and community work.",
   "Exploring reliable interfaces between engineers, Kubernetes, and autonomous systems.",
@@ -111,7 +112,6 @@ export default function Home() {
             <h2>Let&apos;s make it<br /><em>understandable.</em></h2>
             <a className="contact-button" href="mailto:mahallepratik683@gmail.com">Start a conversation <span aria-hidden="true">↗</span></a>
             <div className="contact-socials" aria-label="Contact and social links">
-              <a href="mailto:mahallepratik683@gmail.com">Mail</a>
               <a href="https://in.linkedin.com/in/mahalle-pratik" target="_blank" rel="noreferrer">LinkedIn</a>
               <a href="https://x.com/pratikstwts" target="_blank" rel="noreferrer">X / Twitter</a>
               <a href="https://pratikmahalle.medium.com" target="_blank" rel="noreferrer">Medium</a>

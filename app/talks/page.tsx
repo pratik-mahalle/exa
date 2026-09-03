@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 };
 
 export default function TalksPage() {
+  const hostedSeries = talks.filter((talk) => talk.status === "Hosted");
   const upcomingTalks = talks.filter((talk) => talk.status === "Upcoming");
   const pastTalks = talks.filter((talk) => talk.status === "Past");
 
@@ -31,10 +32,20 @@ export default function TalksPage() {
       <div className="inner-page-shell">
         <header className="inner-page-hero talks-page-hero">
           <a className="back-link" href="/">← Back home</a>
-          <p className="section-index">STAGES / MEETUPS / VIDEO</p>
+          <p className="section-index">HOSTING / STAGES / MEETUPS / VIDEO</p>
           <h1>Talks<span>.</span></h1>
-          <p>Sessions about the systems we build, the failure modes we inherit, and the context that helps teams operate both.</p>
+          <p>Conversations and sessions about the systems we build, the failure modes we inherit, and the context that helps teams operate both.</p>
         </header>
+
+        <section className="talk-group" aria-labelledby="hosted-series">
+          <div className="talk-group-heading">
+            <p className="section-index">BEHIND THE MIC</p>
+            <h2 id="hosted-series">Hosted series</h2>
+          </div>
+          <div className="talks-page-list">
+            {hostedSeries.map((talk, index) => renderTalk(talk, index))}
+          </div>
+        </section>
 
         <section className="talk-group" aria-labelledby="upcoming-talks">
           <div className="talk-group-heading">
@@ -42,7 +53,7 @@ export default function TalksPage() {
             <h2 id="upcoming-talks">Upcoming</h2>
           </div>
           <div className="talks-page-list">
-            {upcomingTalks.map((talk, index) => renderTalk(talk, index))}
+            {upcomingTalks.map((talk, index) => renderTalk(talk, index, hostedSeries.length))}
           </div>
         </section>
 
@@ -52,7 +63,7 @@ export default function TalksPage() {
             <h2 id="past-talks">Past talks</h2>
           </div>
           <div className="talks-page-list">
-            {pastTalks.map((talk, index) => renderTalk(talk, index, upcomingTalks.length))}
+            {pastTalks.map((talk, index) => renderTalk(talk, index, hostedSeries.length + upcomingTalks.length))}
           </div>
         </section>
 

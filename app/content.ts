@@ -38,6 +38,16 @@ export const articles = [
 
 export const talks = [
   {
+    title: "After Hours by RelOps Studio",
+    event: "Hosted series",
+    date: "Ongoing · 2026",
+    description: "Candid conversations with people across the tech ecosystem about the journeys, failures, hard decisions, and behind-the-scenes lessons that rarely make it into the polished version of a career.",
+    href: "https://www.linkedin.com/posts/mahalle-pratik_we-finally-did-it-the-first-episode-activity-7492522087547588608-r31Y",
+    color: "pink",
+    status: "Hosted",
+    badge: "HOST",
+  },
+  {
     title: "What Happens When Your AI SRE Has a Bad Day",
     event: "SREcon26 EMEA",
     date: "Oct 13, 2026",
