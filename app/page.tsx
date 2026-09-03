@@ -2,9 +2,9 @@ import { SiteNav } from "./components/SiteNav";
 
 const projects = [
   {
-    number: "01", name: "InfraAudit", type: "Infrastructure intelligence",
+    number: "01", name: "InfrAudit", type: "Infrastructure intelligence",
     description: "A practical way to inspect infrastructure, surface risk, and turn noisy findings into an actionable engineering view.",
-    tags: ["Platform", "Security", "Developer tooling"], href: "https://github.com/pratik-mahalle/InfraAudit", color: "lime",
+    tags: ["Platform", "Security", "Developer tooling"], href: "https://infraudit.com", color: "lime",
   },
   {
     number: "02", name: "OpsBot", type: "AI for reliability",
@@ -58,7 +58,7 @@ export default function Home() {
               <a href="https://x.com/pratikstwts" target="_blank" rel="noreferrer">X ↗</a>
               <a href="https://in.linkedin.com/in/mahalle-pratik" target="_blank" rel="noreferrer">LinkedIn ↗</a>
               <a href="https://pratikmahalle.medium.com" target="_blank" rel="noreferrer">Medium ↗</a>
-              <a href="mailto:pratik.mahalle@drdroid.io">Email ↗</a>
+              <a href="mailto:mahallepratik683@gmail.com">Email ↗</a>
             </div>
           </div>
         </header>
@@ -115,9 +115,9 @@ export default function Home() {
           <div>
             <p className="contact-kicker">Have a hard infrastructure problem?</p>
             <h2>Let&apos;s make it<br /><em>understandable.</em></h2>
-            <a className="contact-button" href="mailto:pratik.mahalle@drdroid.io">Start a conversation <span aria-hidden="true">↗</span></a>
+            <a className="contact-button" href="mailto:mahallepratik683@gmail.com">Start a conversation <span aria-hidden="true">↗</span></a>
             <div className="contact-socials" aria-label="Contact and social links">
-              <a href="mailto:pratik.mahalle@drdroid.io">Mail</a>
+              <a href="mailto:mahallepratik683@gmail.com">Mail</a>
               <a href="https://in.linkedin.com/in/mahalle-pratik" target="_blank" rel="noreferrer">LinkedIn</a>
               <a href="https://x.com/pratikstwts" target="_blank" rel="noreferrer">X / Twitter</a>
               <a href="https://pratikmahalle.medium.com" target="_blank" rel="noreferrer">Medium</a>

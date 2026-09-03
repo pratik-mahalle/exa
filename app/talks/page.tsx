@@ -56,9 +56,18 @@ export default function TalksPage() {
           </div>
         </section>
 
+        <aside className="almost-stage" aria-labelledby="almost-stage-title">
+          <p className="section-index">THE CALENDAR WON THIS ROUND</p>
+          <div>
+            <h2 id="almost-stage-title">Invited, but the boarding pass never happened.</h2>
+            <p>I was invited to the Observability Summit, OSS Amsterdam, and a few more stages — but dates, travel, and real life failed to reach consensus. Consider them gracefully degraded appearances. We&apos;ll retry with better backoff.</p>
+            <div className="almost-stage-tags" aria-label="Events I was invited to"><span>Observability Summit</span><span>OSS Amsterdam</span><span>More plot twists</span></div>
+          </div>
+        </aside>
+
         <div className="speaker-cta">
           <p>Planning a meetup or conference?</p>
-          <a href="mailto:pratik.mahalle@drdroid.io?subject=Speaking%20invitation">Invite me to speak ↗</a>
+          <a href="mailto:mahallepratik683@gmail.com?subject=Speaking%20invitation">Invite me to speak ↗</a>
         </div>
       </div>
     </main>

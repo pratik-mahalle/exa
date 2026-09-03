@@ -13,7 +13,7 @@ export function SiteNav({ current = "home" }: SiteNavProps) {
         <a href="/articles" aria-current={current === "articles" ? "page" : undefined}>Articles</a>
         <a href="/talks" aria-current={current === "talks" ? "page" : undefined}>Talks</a>
       </div>
-      <a className="nav-cta" href="mailto:pratik.mahalle@drdroid.io">
+      <a className="nav-cta" href="mailto:mahallepratik683@gmail.com">
         Let&apos;s talk <span aria-hidden="true">↗</span>
       </a>
     </nav>
