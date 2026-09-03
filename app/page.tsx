@@ -53,7 +53,7 @@ export default function Home() {
           <div className="hero-copy">
             <p className="eyebrow"><span className="status-dot" /> Hey, I&apos;m</p>
             <h1 id="hero-title">Pratik<br />Mahalle<span>.</span></h1>
-            <p className="identity-line">infra nerd · community builder · endlessly curious</p>
+            <p className="identity-line">I don&apos;t like AI. I just happen to work around it.</p>
             <p className="hero-line">Open-source advocate at <a href="https://drdroid.io" target="_blank" rel="noreferrer">DrDroid</a>, building useful things at the intersection of <strong>infrastructure × AI × developer experience.</strong></p>
           </div>
         </header>
