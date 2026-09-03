@@ -1,3 +1,5 @@
+import { SiteNav } from "./components/SiteNav";
+
 const projects = [
   {
     number: "01", name: "InfraAudit", type: "Infrastructure intelligence",
@@ -28,65 +30,10 @@ const highlights = [
   "Exploring reliable interfaces between engineers, Kubernetes, and autonomous systems.",
 ];
 
-const articles = [
-  {
-    title: "An AI Agent Without Context Is a Fighter Jet Without Radar",
-    excerpt: "Why capable agents still fail inside specialized domains — and what changes when context becomes structured, inspectable infrastructure.",
-    date: "Aug 13, 2026",
-    topic: "Context engineering",
-    href: "https://pratikmahalle.medium.com/an-ai-agent-without-context-is-a-fighter-jet-without-radar-a0a1375d65cc",
-  },
-  {
-    title: "Your Build Isn’t Slow. Your Runner Queue Is.",
-    excerpt: "A look at the hidden wait time in CI, why faster compilation does not fix it, and the trade-offs behind runner infrastructure.",
-    date: "Jul 21, 2026",
-    topic: "CI/CD",
-    href: "https://pratikmahalle.medium.com/your-build-isnt-slow-your-runner-queue-is-d58977317c37",
-  },
-  {
-    title: "Why Most Internal Developer Platforms Fail",
-    excerpt: "Great engineering is not enough. Internal platforms work when teams treat adoption, golden paths, and developer trust as product problems.",
-    date: "Jul 12, 2026",
-    topic: "Platform engineering",
-    href: "https://pratikmahalle.medium.com/platform-as-a-product-treating-your-internal-developer-platform-like-a-customer-facing-one-f99cc3dac190",
-  },
-];
-
-const talks = [
-  {
-    title: "Debugging Knowledge Is Infrastructure Too",
-    event: "SREday Bengaluru",
-    date: "Jun 20, 2026",
-    description: "How to capture the decision patterns behind great incident response and turn tacit expertise into durable investigation workflows.",
-    href: "https://sreday.com/2026-bangalore-q2/Pratik_Mahalle_DrDroid_Debugging_Knowledge_Is_Infrastructure_Too.html",
-    color: "orange",
-  },
-  {
-    title: "From Chaos to Confidence",
-    event: "Cloud Native Pune",
-    date: "Dec 2025",
-    description: "How Microcks brings order to modern API testing across REST, event-driven APIs, mocks, and continuous contract validation.",
-    href: "https://microcks.io/blog/recap-of-an-incredible-2025/",
-    color: "blue",
-  },
-  {
-    title: "Kubernetes: From Google Borg to Cloud Native",
-    event: "30 CNCF Tools in 30 Days",
-    date: "Video",
-    description: "A practical origin story of Kubernetes and why its control-loop model became foundational to modern infrastructure.",
-    href: "https://www.linkedin.com/posts/mahalle-pratik_kubernetes-from-google-borg-to-cloud-native-activity-7396894347520126976-NJ-J",
-    color: "lime",
-  },
-];
-
 export default function Home() {
   return (
     <main>
-      <nav className="nav-wrap" aria-label="Main navigation">
-        <a className="nav-mark" href="#top" aria-label="Back to top">PM<span className="mark-dot">.</span></a>
-        <div className="nav-links"><a href="#about">About</a><a href="#work">Work</a><a href="#articles">Articles</a><a href="#talks">Talks</a></div>
-        <a className="nav-cta" href="#contact">Let&apos;s talk <span aria-hidden="true">↗</span></a>
-      </nav>
+      <SiteNav current="home" />
 
       <div className="site-shell" id="top">
         <header className="hero" aria-labelledby="hero-title">
@@ -154,51 +101,8 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="articles-section" id="articles" aria-labelledby="articles-title">
-          <div className="section-heading articles-heading">
-            <div><p className="section-index">03 / ARTICLES</p><h2 id="articles-title">Notes from the field.</h2></div>
-            <a className="all-writing-link" href="https://pratikmahalle.medium.com" target="_blank" rel="noreferrer">All stories on Medium ↗</a>
-          </div>
-          <div className="article-list">
-            {articles.map((article, index) => (
-              <a className="article-row" href={article.href} key={article.title} target="_blank" rel="noreferrer">
-                <span className="article-number">0{index + 1}</span>
-                <div className="article-copy">
-                  <div className="article-meta"><span>{article.topic}</span><span>{article.date}</span></div>
-                  <h3>{article.title}</h3>
-                  <p>{article.excerpt}</p>
-                </div>
-                <span className="article-arrow" aria-hidden="true">↗</span>
-              </a>
-            ))}
-          </div>
-        </section>
-
-        <section className="talks-section" id="talks" aria-labelledby="talks-title">
-          <div className="talks-heading">
-            <p className="section-index">04 / TALKS</p>
-            <div>
-              <h2 id="talks-title">Ideas, spoken aloud.</h2>
-              <p>Sessions about the systems we build, the failure modes we inherit, and the context that helps teams operate both.</p>
-            </div>
-          </div>
-          <div className="talk-list">
-            {talks.map((talk, index) => (
-              <a className={`talk-row talk-${talk.color}`} href={talk.href} key={talk.title} target="_blank" rel="noreferrer">
-                <div className="talk-poster" aria-hidden="true"><span>0{index + 1}</span><i /><b>LIVE</b></div>
-                <div className="talk-copy">
-                  <div className="talk-meta"><span>{talk.event}</span><span>{talk.date}</span></div>
-                  <h3>{talk.title}</h3>
-                  <p>{talk.description}</p>
-                  <span className="talk-link">View session <b aria-hidden="true">↗</b></span>
-                </div>
-              </a>
-            ))}
-          </div>
-        </section>
-
         <section className="now-section" id="notes" aria-labelledby="now-title">
-          <p className="section-index">05 / RIGHT NOW</p>
+          <p className="section-index">03 / RIGHT NOW</p>
           <div className="now-copy">
             <h2 id="now-title">Currently curious about...</h2>
             <div className="ticker" aria-label="Current interests"><span>AI-native operations</span><i>✦</i><span>Observability</span><i>✦</i><span>Developer communities</span><i>✦</i><span>Reliable agents</span></div>
@@ -207,7 +111,7 @@ export default function Home() {
         </section>
 
         <section className="contact-section" id="contact">
-          <p className="section-index">06 / CONTACT</p>
+          <p className="section-index">04 / CONTACT</p>
           <div>
             <p className="contact-kicker">Have a hard infrastructure problem?</p>
             <h2>Let&apos;s make it<br /><em>understandable.</em></h2>

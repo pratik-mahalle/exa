@@ -1,0 +1,64 @@
+export const articles = [
+  {
+    title: "An AI Agent Without Context Is a Fighter Jet Without Radar",
+    excerpt: "Why capable agents still fail inside specialized domains — and what changes when context becomes structured, inspectable infrastructure.",
+    date: "Aug 13, 2026",
+    topic: "Context engineering",
+    href: "https://pratikmahalle.medium.com/an-ai-agent-without-context-is-a-fighter-jet-without-radar-a0a1375d65cc",
+  },
+  {
+    title: "Your Build Isn’t Slow. Your Runner Queue Is.",
+    excerpt: "A look at the hidden wait time in CI, why faster compilation does not fix it, and the trade-offs behind runner infrastructure.",
+    date: "Jul 21, 2026",
+    topic: "CI/CD",
+    href: "https://pratikmahalle.medium.com/your-build-isnt-slow-your-runner-queue-is-d58977317c37",
+  },
+  {
+    title: "Why Most Internal Developer Platforms Fail",
+    excerpt: "Great engineering is not enough. Internal platforms work when teams treat adoption, golden paths, and developer trust as product problems.",
+    date: "Jul 12, 2026",
+    topic: "Platform engineering",
+    href: "https://pratikmahalle.medium.com/platform-as-a-product-treating-your-internal-developer-platform-like-a-customer-facing-one-f99cc3dac190",
+  },
+  {
+    title: "Bazel 9 Migration: How to Get Faster Builds Before the Bzlmod Refactor",
+    excerpt: "A pragmatic argument for separating build-performance improvements from the migration work required by a major build-system release.",
+    date: "Feb 17, 2026",
+    topic: "Build systems",
+    href: "https://pratikmahalle.medium.com/bazel-9-migration-how-to-get-faster-builds-before-the-bzlmod-refactor-d9591cd4f0fb",
+  },
+  {
+    title: "Why AOSP Builds Take Forever",
+    excerpt: "Where Android build time actually goes, why adding hardware has limits, and how shared caching changes the economics of compilation.",
+    date: "Jan 22, 2026",
+    topic: "AOSP",
+    href: "https://pratikmahalle.medium.com/why-aosp-builds-take-forever-and-what-you-can-actually-do-about-it-c077c40797ee",
+  },
+];
+
+export const talks = [
+  {
+    title: "Debugging Knowledge Is Infrastructure Too",
+    event: "SREday Bengaluru",
+    date: "Jun 20, 2026",
+    description: "How to capture the decision patterns behind great incident response and turn tacit expertise into durable investigation workflows.",
+    href: "https://sreday.com/2026-bangalore-q2/Pratik_Mahalle_DrDroid_Debugging_Knowledge_Is_Infrastructure_Too.html",
+    color: "orange",
+  },
+  {
+    title: "From Chaos to Confidence",
+    event: "Cloud Native Pune",
+    date: "Dec 2025",
+    description: "How Microcks brings order to modern API testing across REST, event-driven APIs, mocks, and continuous contract validation.",
+    href: "https://microcks.io/blog/recap-of-an-incredible-2025/",
+    color: "blue",
+  },
+  {
+    title: "Kubernetes: From Google Borg to Cloud Native",
+    event: "30 CNCF Tools in 30 Days",
+    date: "Video",
+    description: "A practical origin story of Kubernetes and why its control-loop model became foundational to modern infrastructure.",
+    href: "https://www.linkedin.com/posts/mahalle-pratik_kubernetes-from-google-borg-to-cloud-native-activity-7396894347520126976-NJ-J",
+    color: "lime",
+  },
+];

@@ -19,6 +19,7 @@ a { color: inherit; text-decoration: none; }
 .nav-links a { position: relative; }
 .nav-links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -4px; height: 1px; background: var(--ink); transition: right .2s ease; }
 .nav-links a:hover::after { right: 0; }
+.nav-links a[aria-current="page"]::after { right: 0; background: #ef562f; }
 .nav-cta { justify-self: end; background: var(--ink); color: var(--paper); border-radius: 999px; padding: 12px 17px; font-size: .78rem; font-weight: 700; transition: transform .2s ease, background .2s ease; }
 .nav-cta:hover { transform: translateY(-2px); background: #34352f; }
 
@@ -89,7 +90,7 @@ section { scroll-margin-top: 100px; }
 .article-row:hover { padding-left: 17px; padding-right: 17px; background: rgba(184,238,91,.22); }
 .article-number { padding-top: 5px; color: #ef562f; font: italic .8rem var(--serif); }
 .article-meta { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 9px; color: var(--muted); font-size: .63rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
-.article-copy h3 { margin: 0; font-family: var(--serif); font-size: clamp(1.55rem, 3vw, 2.35rem); font-weight: 500; letter-spacing: -.035em; line-height: 1.1; }
+.article-copy h2, .article-copy h3 { margin: 0; font-family: var(--serif); font-size: clamp(1.55rem, 3vw, 2.35rem); font-weight: 500; letter-spacing: -.035em; line-height: 1.1; }
 .article-copy > p { max-width: 700px; margin: 12px 0 0; color: var(--muted); font-size: .91rem; line-height: 1.6; }
 .article-arrow { font-size: 1.2rem; transition: transform .2s ease; }
 .article-row:hover .article-arrow { transform: translate(3px,-3px); }
@@ -109,7 +110,7 @@ section { scroll-margin-top: 100px; }
 .talk-poster b { position: absolute; right: 8px; bottom: 8px; padding: 5px 7px; border: 1px solid var(--ink); background: var(--paper); font-size: .53rem; letter-spacing: .1em; }
 .talk-copy { align-self: center; }
 .talk-meta { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 10px; color: var(--muted); font-size: .65rem; font-weight: 800; letter-spacing: .09em; text-transform: uppercase; }
-.talk-copy h3 { max-width: 650px; margin: 0; font-family: var(--serif); font-size: clamp(1.7rem, 3.3vw, 2.65rem); font-weight: 500; letter-spacing: -.04em; line-height: 1.05; }
+.talk-copy h2, .talk-copy h3 { max-width: 650px; margin: 0; font-family: var(--serif); font-size: clamp(1.7rem, 3.3vw, 2.65rem); font-weight: 500; letter-spacing: -.04em; line-height: 1.05; }
 .talk-copy > p { max-width: 650px; margin: 13px 0 18px; color: var(--muted); font-size: .91rem; line-height: 1.6; }
 .talk-link { font-size: .7rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
 .talk-link b { display: inline-block; margin-left: 4px; transition: transform .2s ease; }
@@ -128,6 +129,21 @@ section { scroll-margin-top: 100px; }
 .contact-socials { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 42px; }
 .contact-socials a { color: var(--muted); font-size: .72rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 4px; }
 .contact-socials a:hover { color: var(--ink); text-decoration-color: #ef562f; }
+.inner-page-shell { width: min(calc(100% - 48px), 1060px); margin: 0 auto; padding: 145px 0 90px; }
+.inner-page-hero { max-width: 850px; padding: 35px 0 75px; }
+.back-link { display: inline-block; margin-bottom: 70px; color: var(--muted); font-size: .72rem; font-weight: 750; }
+.back-link:hover { color: var(--ink); }
+.inner-page-hero h1 { margin: 15px 0 0; font-family: var(--serif); font-size: clamp(5.2rem, 13vw, 10rem); font-weight: 500; letter-spacing: -.08em; line-height: .82; }
+.inner-page-hero h1 span { color: #ef562f; }
+.inner-page-hero > p:last-child { max-width: 670px; margin: 34px 0 0; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.65; }
+.articles-page-list, .talks-page-list { border-top: 1px solid var(--ink); }
+.articles-page-list .article-row { padding-top: 38px; padding-bottom: 38px; }
+.articles-page-list .article-copy > p { max-width: 760px; }
+.page-end-link { display: flex; justify-content: flex-end; padding: 38px 0 20px; }
+.page-end-link a { padding-bottom: 7px; border-bottom: 1px solid var(--ink); font-size: .78rem; font-weight: 800; }
+.speaker-cta { margin-top: 75px; padding: 38px; display: flex; align-items: center; justify-content: space-between; gap: 30px; border: 1px solid var(--ink); background: var(--green); }
+.speaker-cta p { margin: 0; font-family: var(--serif); font-size: clamp(1.6rem, 4vw, 2.7rem); letter-spacing: -.04em; }
+.speaker-cta a { flex: none; padding: 13px 18px; border-radius: 999px; background: var(--ink); color: var(--paper); font-size: .72rem; font-weight: 800; }
 footer { padding: 24px 0 34px; display: grid; grid-template-columns: 1fr 1fr 1fr; border-top: 1px solid var(--ink); color: var(--muted); font-size: .7rem; font-weight: 650; text-transform: uppercase; letter-spacing: .05em; }
 footer p { margin: 0; } footer p:nth-child(2) { text-align: center; } footer a { justify-self: end; color: var(--ink); }
 
@@ -138,6 +154,7 @@ footer p { margin: 0; } footer p:nth-child(2) { text-align: center; } footer a {
   .project-grid { grid-template-columns: 1fr; } .section-heading { align-items: start; flex-direction: column; }
   .articles-section, .talks-section { padding: 80px 0; }
   .talks-heading { grid-template-columns: 1fr; gap: 32px; }
+  .inner-page-hero { padding-bottom: 55px; }
 }
 @media (max-width: 520px) {
   .site-shell { width: min(calc(100% - 32px), 1060px); } .nav-wrap { width: calc(100% - 24px); top: 12px; }
@@ -147,6 +164,10 @@ footer p { margin: 0; } footer p:nth-child(2) { text-align: center; } footer a {
   .article-copy > p { display: none; }
   .talk-row { grid-template-columns: 1fr; gap: 22px; }
   .talk-poster { min-height: 150px; }
+  .inner-page-shell { width: calc(100% - 32px); padding-top: 115px; }
+  .back-link { margin-bottom: 55px; }
+  .inner-page-hero h1 { font-size: clamp(4.7rem, 25vw, 7rem); }
+  .speaker-cta { padding: 25px; align-items: flex-start; flex-direction: column; }
   footer { grid-template-columns: 1fr auto; gap: 8px; } footer p:nth-child(2) { display: none; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
