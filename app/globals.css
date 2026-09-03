@@ -137,6 +137,9 @@ section { scroll-margin-top: 100px; }
 .inner-page-hero h1 span { color: #ef562f; }
 .inner-page-hero > p:last-child { max-width: 670px; margin: 34px 0 0; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.25rem); line-height: 1.65; }
 .articles-page-list, .talks-page-list { border-top: 1px solid var(--ink); }
+.talk-group + .talk-group { margin-top: 86px; }
+.talk-group-heading { display: flex; align-items: end; justify-content: space-between; gap: 30px; margin-bottom: 24px; }
+.talk-group-heading h2 { margin: 0; font-family: var(--serif); font-size: clamp(2.35rem, 5vw, 4.2rem); font-weight: 500; letter-spacing: -.05em; line-height: .95; }
 .articles-page-list .article-row { padding-top: 38px; padding-bottom: 38px; }
 .articles-page-list .article-copy > p { max-width: 760px; }
 .page-end-link { display: flex; justify-content: flex-end; padding: 38px 0 20px; }
@@ -164,6 +167,8 @@ footer p { margin: 0; } footer p:nth-child(2) { text-align: center; } footer a {
   .article-copy > p { display: none; }
   .talk-row { grid-template-columns: 1fr; gap: 22px; }
   .talk-poster { min-height: 150px; }
+  .talk-group + .talk-group { margin-top: 65px; }
+  .talk-group-heading { align-items: flex-start; flex-direction: column; gap: 10px; }
   .inner-page-shell { width: calc(100% - 32px); padding-top: 115px; }
   .back-link { margin-bottom: 55px; }
   .inner-page-hero h1 { font-size: clamp(4.7rem, 25vw, 7rem); }

@@ -38,12 +38,44 @@ export const articles = [
 
 export const talks = [
   {
+    title: "What Happens When Your AI SRE Has a Bad Day",
+    event: "SREcon26 EMEA",
+    date: "Oct 13, 2026",
+    description: "A field guide to failure modes in production AI SRE agents — from bad historical matches and alert-storm reasoning collapse to runbook drift and operator over-trust.",
+    href: "https://www.usenix.org/conference/srecon26emea/presentation/mahalle",
+    color: "blue",
+    status: "Upcoming",
+    badge: "NEXT",
+  },
+  {
+    title: "From Search to Context: Building Smarter AI Agents with OpenSearch",
+    event: "OpenSearch Project Nagpur × Cloud Native Nagpur",
+    date: "Sep 5, 2026",
+    description: "How keyword, vector, and hybrid search can turn operational data into structured context that helps AI agents move from an alert toward a credible root cause.",
+    href: "https://www.meetup.com/opensearch-project-nagpur/",
+    color: "lime",
+    status: "Upcoming",
+    badge: "NEXT",
+  },
+  {
+    title: "AAIF Agentic AI Pune Connect",
+    event: "AAIF Pune Meetup",
+    date: "Aug 2026",
+    description: "A community session on practical agentic AI, production systems, and the lessons that emerge when agents leave the prototype and meet real infrastructure.",
+    href: "https://www.linkedin.com/posts/activity-7487373277615677441-Nf-C",
+    color: "orange",
+    status: "Past",
+    badge: "TALK",
+  },
+  {
     title: "Debugging Knowledge Is Infrastructure Too",
     event: "SREday Bengaluru",
     date: "Jun 20, 2026",
     description: "How to capture the decision patterns behind great incident response and turn tacit expertise into durable investigation workflows.",
     href: "https://sreday.com/2026-bangalore-q2/Pratik_Mahalle_DrDroid_Debugging_Knowledge_Is_Infrastructure_Too.html",
     color: "orange",
+    status: "Past",
+    badge: "TALK",
   },
   {
     title: "From Chaos to Confidence",
@@ -52,6 +84,8 @@ export const talks = [
     description: "How Microcks brings order to modern API testing across REST, event-driven APIs, mocks, and continuous contract validation.",
     href: "https://microcks.io/blog/recap-of-an-incredible-2025/",
     color: "blue",
+    status: "Past",
+    badge: "TALK",
   },
   {
     title: "Kubernetes: From Google Borg to Cloud Native",
@@ -60,5 +94,7 @@ export const talks = [
     description: "A practical origin story of Kubernetes and why its control-loop model became foundational to modern infrastructure.",
     href: "https://www.linkedin.com/posts/mahalle-pratik_kubernetes-from-google-borg-to-cloud-native-activity-7396894347520126976-NJ-J",
     color: "lime",
+    status: "Past",
+    badge: "VIDEO",
   },
 ];
