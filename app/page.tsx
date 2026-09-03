@@ -25,7 +25,7 @@ const projects = [
 
 const highlights = [
   "Building at the intersection of infrastructure, AI agents, and developer experience.",
-  "Contributing to cloud-native and observability communities, including OpenTelemetry.",
+  "A member of the OpenTelemetry community, contributing to open-source observability.",
   "Organised meetups and hackathons that brought Pune's developer community together.",
   "Explaining complex infrastructure ideas through talks, writing, demos, and community work.",
   "Exploring reliable interfaces between engineers, Kubernetes, and autonomous systems.",
@@ -53,7 +53,7 @@ export default function Home() {
             <p className="eyebrow"><span className="status-dot" /> Hey, I&apos;m</p>
             <h1 id="hero-title">Pratik<br />Mahalle<span>.</span></h1>
             <p className="pronunciation">(pruh-teek · muh-hall-ay)</p>
-            <p className="hero-line">Open-source advocate building useful things at the intersection of <strong>infrastructure × AI × developer experience.</strong></p>
+            <p className="hero-line">Open-source advocate at <a href="https://drdroid.io" target="_blank" rel="noreferrer">DrDroid</a>, building useful things at the intersection of <strong>infrastructure × AI × developer experience.</strong></p>
           </div>
         </header>
 
