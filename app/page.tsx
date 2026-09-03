@@ -53,13 +53,6 @@ export default function Home() {
             <h1 id="hero-title">Pratik<br />Mahalle<span>.</span></h1>
             <p className="pronunciation">(pruh-teek · muh-hall-ay)</p>
             <p className="hero-line">Open-source advocate building useful things at the intersection of <strong>infrastructure × AI × developer experience.</strong></p>
-            <div className="social-row" aria-label="Social profiles">
-              <a href="https://github.com/pratik-mahalle" target="_blank" rel="noreferrer">GitHub ↗</a>
-              <a href="https://x.com/pratikstwts" target="_blank" rel="noreferrer">X ↗</a>
-              <a href="https://in.linkedin.com/in/mahalle-pratik" target="_blank" rel="noreferrer">LinkedIn ↗</a>
-              <a href="https://pratikmahalle.medium.com" target="_blank" rel="noreferrer">Medium ↗</a>
-              <a href="mailto:mahallepratik683@gmail.com">Email ↗</a>
-            </div>
           </div>
         </header>
 
