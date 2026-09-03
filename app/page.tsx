@@ -26,6 +26,7 @@ const projects = [
 const highlights = [
   "Building at the intersection of infrastructure, AI agents, and developer experience.",
   "Contributing to cloud-native and observability communities, including OpenTelemetry.",
+  "Organised meetups and hackathons that brought Pune's developer community together.",
   "Explaining complex infrastructure ideas through talks, writing, demos, and community work.",
   "Exploring reliable interfaces between engineers, Kubernetes, and autonomous systems.",
 ];
@@ -42,7 +43,7 @@ export default function Home() {
             <div className="portrait-frame">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="https://avatars.githubusercontent.com/u/124587957?v=4" alt="Pratik Mahalle" className="portrait-image" />
-              <span className="portrait-caption">Pune, India · 18.52° N</span>
+              <span className="portrait-caption">Bengaluru, India · 12.97° N</span>
             </div>
             <span className="orbit-note orbit-note-one">open source</span>
             <span className="orbit-note orbit-note-two">always building</span>
@@ -62,7 +63,7 @@ export default function Home() {
             <p className="lead">I like turning complex infrastructure problems into products, stories, and tools that developers actually want to use.</p>
             <div className="intro-grid">
               <p>My work moves between platform engineering, DevRel, open source, and applied AI. I&apos;m most at home when the problem is messy, the system is distributed, and the useful answer still needs finding.</p>
-              <p>These days I&apos;m building with <a href="https://opentelemetry.io/" target="_blank" rel="noreferrer">OpenTelemetry</a>, experimenting with agentic tooling, and sharing what I learn with cloud-native communities.</p>
+              <p>After organising meetups and hackathons with Pune&apos;s developer community, I&apos;m now based in Bengaluru — building with <a href="https://opentelemetry.io/" target="_blank" rel="noreferrer">OpenTelemetry</a>, experimenting with agentic tooling, and sharing what I learn.</p>
             </div>
           </div>
         </section>
@@ -118,7 +119,7 @@ export default function Home() {
           </div>
         </section>
 
-        <footer><p>Pratik Mahalle © {new Date().getFullYear()}</p><p>Built with curiosity in Pune.</p><a href="#top">Back to top ↑</a></footer>
+        <footer><p>Pratik Mahalle © {new Date().getFullYear()}</p><p>Pune roots. Building in Bengaluru.</p><a href="#top">Back to top ↑</a></footer>
       </div>
     </main>
   );
