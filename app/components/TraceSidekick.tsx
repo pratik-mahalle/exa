@@ -58,7 +58,7 @@ export function TraceSidekick() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([
-    { id: 1, from: "trace", text: "Hey, I'm Trace — your sidekick. Ask me where to look." },
+    { id: 1, from: "trace", text: "Hey, I'm Trace — Pratik's sidekick. Ask me where to look." },
   ]);
   const inputRef = useRef<HTMLInputElement>(null);
   const messageId = useRef(2);
