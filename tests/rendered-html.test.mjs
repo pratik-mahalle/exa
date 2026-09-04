@@ -38,10 +38,14 @@ test("server-renders Pratik's portfolio and Trace launcher", async () => {
 test("Trace covers the portfolio's main visitor questions", async () => {
   const trace = await readFile(new URL("../app/components/TraceSidekick.tsx", import.meta.url), "utf8");
 
+  assert.match(trace, /How do you know Pratik\?/);
   assert.match(trace, /What does Pratik build\?/);
   assert.match(trace, /Show me his talks/);
-  assert.match(trace, /What is After Hours\?/);
-  assert.match(trace, /How can I reach him\?/);
+  assert.match(trace, /Are you actually AI\?/);
+  assert.match(trace, /I live here rent-free/);
+  assert.match(trace, /no dramatic cloud bill/);
+  assert.match(trace, /outside my tiny jurisdiction/);
+  assert.match(trace, /replace\(\/\\bpratk\\b\/g, "pratik"\)/);
   assert.match(trace, /event\.key === "Escape"/);
   assert.match(trace, /aria-live="polite"/);
 });

@@ -10,48 +10,121 @@ type Message = {
   linkLabel?: string;
 };
 
-const prompts = ["What does Pratik build?", "Show me his talks", "What is After Hours?", "How can I reach him?"];
+type Answer = Omit<Message, "id" | "from">;
 
-const answers = [
+type AnswerRule = {
+  patterns: RegExp[];
+  answer: Answer;
+};
+
+const prompts = ["How do you know Pratik?", "What does Pratik build?", "Show me his talks", "Are you actually AI?"];
+
+const answerRules: AnswerRule[] = [
   {
-    keywords: ["build", "project", "work", "ship"],
-    text: "Pratik builds at the intersection of infrastructure, AI agents, observability, and developer experience. His recent work includes InfrAudit, OpsBot, k8s-mcp, and Failproof Chaos.",
-    href: "/#work",
-    linkLabel: "Explore selected work",
+    patterns: [/how do you know pratik/, /you know pratik/, /who (made|created|built) you/],
+    answer: {
+      text: "We go way back — roughly to the moment he added me to this site. I live here rent-free and know the public version of his story.",
+    },
   },
   {
-    keywords: ["talk", "speak", "conference", "openssf", "community"],
-    text: "Pratik speaks about cloud-native systems, security, observability, AI, and the lessons hidden inside engineering failures.",
-    href: "/talks",
-    linkLabel: "See talks and appearances",
+    patterns: [/who is pratik/, /tell me about pratik/, /introduce pratik/, /what is pratik like/],
+    answer: {
+      text: "Pratik is an open-source advocate, community builder, speaker, and enthusiastic breaker of prototypes. He turns complicated infrastructure ideas into tools and stories people can actually use.",
+      href: "/#about",
+      linkLabel: "Meet Pratik",
+    },
   },
   {
-    keywords: ["after hours", "afterhours", "relops", "show", "host"],
-    text: "After Hours by RelOps Studio is Pratik's candid conversation series about the parts of a tech career that rarely make the polished version.",
-    href: "/talks#after-hours",
-    linkLabel: "Meet the series",
+    patterns: [/are you (an? )?(ai|bot)/, /are you real/, /what are you/, /who are you/],
+    answer: {
+      text: "AI would be a generous description. I'm a tiny collection of useful answers with excellent timing and no dramatic cloud bill.",
+    },
   },
   {
-    keywords: ["contact", "reach", "email", "mail", "hire", "collaborate"],
-    text: "The quickest route is email. Pratik is also active on LinkedIn and X.",
-    href: "mailto:mahallepratik683@gmail.com",
-    linkLabel: "Email Pratik",
+    patterns: [/^(hi|hey|hello|yo|sup)\b/, /good (morning|afternoon|evening)/],
+    answer: {
+      text: "Hey! I'm Trace. I know a suspicious amount about Pratik and exactly where everything is on this site. What's up?",
+    },
   },
   {
-    keywords: ["write", "article", "blog", "read"],
-    text: "Pratik writes about infrastructure, developer relations, open source, and the practical side of building reliable systems.",
-    href: "/articles",
-    linkLabel: "Read his writing",
+    patterns: [/how are you/, /how('?s| is) it going/, /what('?s| is) up/],
+    answer: {
+      text: "Running smoothly, avoiding meetings, and waiting for interesting questions. So, pretty good.",
+    },
+  },
+  {
+    patterns: [/thank(s| you)/, /cheers/, /helpful/],
+    answer: {
+      text: "Anytime. I accept payment in interesting tabs and good conference snacks.",
+    },
+  },
+  {
+    patterns: [/^(bye|goodbye|see you)/, /gotta go/],
+    answer: {
+      text: "Later! I'll be right here, pretending this browser tab is prime real estate.",
+    },
+  },
+  {
+    patterns: [/tell me a joke/, /make me laugh/, /something funny/],
+    answer: {
+      text: "I asked Pratik for a joke. He shipped me instead. Honestly, fair play.",
+    },
+  },
+  {
+    patterns: [/favo(u)?rite colo(u)?r/, /what colo(u)?r do you like/],
+    answer: {
+      text: "Green, apparently. Have you seen this site? I didn't exactly get a vote.",
+    },
+  },
+  {
+    patterns: [/\b(build|built|projects?|work|shipped?)\b/],
+    answer: {
+      text: "Pratik builds at the intersection of infrastructure, AI agents, observability, and developer experience. His recent work includes InfrAudit, OpsBot, k8s-mcp, and Failproof Chaos.",
+      href: "/#work",
+      linkLabel: "Explore selected work",
+    },
+  },
+  {
+    patterns: [/after hours/, /afterhours/, /relops/, /hosted series/],
+    answer: {
+      text: "After Hours by RelOps Studio is Pratik's candid conversation series about the parts of a tech career that rarely make the polished version.",
+      href: "/talks#after-hours",
+      linkLabel: "Meet the series",
+    },
+  },
+  {
+    patterns: [/contact/, /reach (him|pratik)/, /e-?mail/, /hire/, /collaborate/, /talk to (him|pratik)/],
+    answer: {
+      text: "The quickest route is email. Pratik is also active on LinkedIn and X. Carrier pigeon support is still in beta.",
+      href: "mailto:mahallepratik683@gmail.com",
+      linkLabel: "Email Pratik",
+    },
+  },
+  {
+    patterns: [/\b(talks?|speaks?|speaker|conference|openssf)\b/, /community day/],
+    answer: {
+      text: "Pratik speaks about cloud-native systems, security, observability, AI, and the lessons hidden inside engineering failures.",
+      href: "/talks",
+      linkLabel: "See talks and appearances",
+    },
+  },
+  {
+    patterns: [/\b(writes?|writing|articles?|blog|read)\b/],
+    answer: {
+      text: "Pratik writes about infrastructure, developer relations, open source, and the practical side of building reliable systems.",
+      href: "/articles",
+      linkLabel: "Read his writing",
+    },
   },
 ];
 
 const fallback = {
-  text: "I know Pratik's projects, talks, writing, After Hours series, and contact details. Try asking about one of those and I'll point you in the right direction.",
+  text: "Bold question. That's outside my tiny jurisdiction — I know Pratik, his work, talks, writing, and where the contact button lives. Try me on one of those before I start improvising.",
 };
 
 function findAnswer(question: string) {
-  const normalized = question.toLowerCase();
-  return answers.find((answer) => answer.keywords.some((keyword) => normalized.includes(keyword))) ?? fallback;
+  const normalized = question.toLowerCase().replace(/\bpratk\b/g, "pratik").trim();
+  return answerRules.find((rule) => rule.patterns.some((pattern) => pattern.test(normalized)))?.answer ?? fallback;
 }
 
 export function TraceSidekick() {
