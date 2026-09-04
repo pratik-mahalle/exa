@@ -32,7 +32,7 @@ test("server-renders Pratik's portfolio and Trace launcher", async () => {
   assert.match(html, /<title>Pratik Mahalle — Open Source, Infrastructure &amp; AI<\/title>/i);
   assert.match(html, /Things I&#x27;ve shipped\./);
   assert.match(html, /Ask Trace/);
-  assert.match(html, /aria-label="Ask Trace, Pratik&#x27;s portfolio sidekick"/);
+  assert.match(html, /aria-label="Ask Trace, Pratik&#x27;s sidekick"/);
 });
 
 test("Trace covers the portfolio's main visitor questions", async () => {

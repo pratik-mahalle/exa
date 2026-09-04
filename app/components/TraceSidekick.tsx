@@ -58,7 +58,7 @@ export function TraceSidekick() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([
-    { id: 1, from: "trace", text: "Hey, I'm Trace — Pratik's portfolio sidekick. Ask me where to look." },
+    { id: 1, from: "trace", text: "Hey, I'm Trace — your sidekick. Ask me where to look." },
   ]);
   const inputRef = useRef<HTMLInputElement>(null);
   const messageId = useRef(2);
@@ -96,11 +96,11 @@ export function TraceSidekick() {
   return (
     <div className="trace-sidekick">
       {isOpen && (
-        <section className="trace-panel" aria-label="Trace portfolio guide">
+        <section className="trace-panel" aria-label="Trace sidekick">
           <div className="trace-header">
             <div className="trace-identity">
               <span className="trace-avatar" aria-hidden="true">T</span>
-              <div><strong>Trace</strong><span><i /> Portfolio sidekick</span></div>
+              <div><strong>Trace</strong><span><i /> Sidekick</span></div>
             </div>
             <button className="trace-close" type="button" onClick={() => setIsOpen(false)} aria-label="Close Trace">×</button>
           </div>
@@ -128,7 +128,7 @@ export function TraceSidekick() {
         </section>
       )}
 
-      <button className="trace-launcher" type="button" onClick={() => setIsOpen((current) => !current)} aria-expanded={isOpen} aria-label={isOpen ? "Close Trace" : "Ask Trace, Pratik's portfolio sidekick"}>
+      <button className="trace-launcher" type="button" onClick={() => setIsOpen((current) => !current)} aria-expanded={isOpen} aria-label={isOpen ? "Close Trace" : "Ask Trace, Pratik's sidekick"}>
         <span className="trace-launcher-mark">T</span>
         <span>Ask Trace</span>
         <i aria-hidden="true" />
