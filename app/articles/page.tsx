@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteNav } from "../components/SiteNav";
 import { articles } from "../content";
@@ -13,7 +14,7 @@ export default function ArticlesPage() {
       <SiteNav current="articles" />
       <div className="inner-page-shell">
         <header className="inner-page-hero">
-          <a className="back-link" href="/">← Back home</a>
+          <Link className="back-link" href="/">← Back home</Link>
           <p className="section-index">WRITING / FIELD NOTES</p>
           <h1>Articles<span>.</span></h1>
           <p>Notes on infrastructure, developer platforms, AI-assisted operations, and the engineering decisions hiding beneath the surface.</p>

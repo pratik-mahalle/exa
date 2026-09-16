@@ -2,6 +2,11 @@ import { SiteNav } from "./components/SiteNav";
 
 const projects = [
   {
+    number: "05", name: "Cloudwake", type: "AWS cost monitoring",
+    description: "AWS spending, resource activity, and savings in your Mac menu bar. Keep watching your account while your Mac sleeps.",
+    tags: ["AWS", "macOS", "Cost visibility"], href: "/cloudwake", color: "cloudwake",
+  },
+  {
     number: "01", name: "InfrAudit", type: "Infrastructure intelligence",
     description: "A practical way to inspect infrastructure, surface risk, and turn noisy findings into an actionable engineering view.",
     tags: ["Platform", "Security", "Developer tooling"], href: "https://infraudit.com", color: "lime",
@@ -86,9 +91,12 @@ export default function Home() {
           </div>
           <div className="project-grid">
             {projects.map((project) => (
-              <a className={`project-card project-${project.color}`} href={project.href} key={project.name} target="_blank" rel="noreferrer">
+              <a className={`project-card project-${project.color}`} href={project.href} key={project.name} target={project.href.startsWith("/") ? undefined : "_blank"} rel={project.href.startsWith("/") ? undefined : "noreferrer"}>
                 <div className="project-topline"><span>{project.number}</span><span>{project.type}</span><span className="project-arrow" aria-hidden="true">↗</span></div>
-                <div className="project-visual" aria-hidden="true"><span>{project.name.slice(0, 2).toUpperCase()}</span><i /><b>RUNNING</b></div>
+                <div className="project-visual" aria-hidden="true">{project.name === "Cloudwake" ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img src="/cloudwake/logo.svg" alt="" width="150" height="150" />
+                ) : <><span>{project.name.slice(0, 2).toUpperCase()}</span><i /></>}<b>{project.name === "Cloudwake" ? "MAC MENU BAR" : "RUNNING"}</b></div>
                 <h3>{project.name}</h3><p>{project.description}</p>
                 <div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
               </a>

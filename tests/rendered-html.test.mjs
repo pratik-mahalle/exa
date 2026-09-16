@@ -2,13 +2,13 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-async function render() {
+async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
 
   return worker.fetch(
-    new Request("http://localhost/", {
+    new Request(`http://localhost${pathname}`, {
       headers: { accept: "text/html" },
     }),
     {
@@ -48,4 +48,21 @@ test("Trace covers the portfolio's main visitor questions", async () => {
   assert.match(trace, /replace\(\/\\bpratk\\b\/g, "pratik"\)/);
   assert.match(trace, /event\.key === "Escape"/);
   assert.match(trace, /aria-live="polite"/);
+});
+
+
+test("Cloudwake has its own rendered content, metadata, and real setup destination", async () => {
+  const response = await render("/cloudwake");
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /<title>Cloudwake — Your AWS bill, in plain sight<\/title>/);
+  assert.match(html, /rel="canonical" href="https:\/\/pratikmahalle.com\/cloudwake"/);
+  assert.match(html, /property="og:image" content="https:\/\/pratikmahalle.com\/cloudwake\/icon.png"/);
+  assert.match(html, /name="twitter:card" content="summary"/);
+  assert.match(html, /href="https:\/\/github.com\/pratik-mahalle\/infralive\/releases\/download\/v0.3.0\/Cloudwake-0.3.0-macos-arm64.zip"/);
+  assert.match(html, /Illustrative demo data/);
+  assert.match(html, /brew install --cask pratik-mahalle\/tap\/cloudwake/);
+  assert.match(html, /Early release, not notarized/);
+  assert.doesNotMatch(html, /Native<\/b> SwiftUI app/);
+  assert.equal((html.match(/<details/g) ?? []).length, 6);
 });
