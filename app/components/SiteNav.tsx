@@ -14,7 +14,6 @@ export function SiteNav({ current = "home" }: SiteNavProps) {
         <Link href="/" aria-current={current === "home" ? "page" : undefined}>Home</Link>
         <a href="/articles" aria-current={current === "articles" ? "page" : undefined}>Articles</a>
         <a href="/talks" aria-current={current === "talks" ? "page" : undefined}>Talks</a>
-        <a href="/cloudwake">Cloudwake</a>
       </div>
       <a className="nav-cta" href="mailto:mahallepratik683@gmail.com">
         Let&apos;s talk <span aria-hidden="true">↗</span>

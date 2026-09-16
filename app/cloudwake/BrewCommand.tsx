@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const command = "brew install --cask pratik-mahalle/tap/cloudwake";
+const command = "brew tap pratik-mahalle/tap\nbrew install --cask pratik-mahalle/tap/cloudwake";
 
 export function BrewCommand() {
   const [message, setMessage] = useState("");
@@ -11,8 +11,17 @@ export function BrewCommand() {
       await navigator.clipboard.writeText(command);
       setMessage("Copied");
     } catch {
-      setMessage("Select and copy the command above.");
+      setMessage("Select and copy both commands above.");
     }
   }
-  return <div className="cw-brew"><p>Or install with Homebrew</p><div className="cw-brew-command"><code>{command}</code><button type="button" onClick={copy} aria-label="Copy Homebrew install command">{message === "Copied" ? "Copied ✓" : "Copy"}</button></div><span className="cw-copy-status" role="status" aria-live="polite">{message !== "Copied" ? message : "Homebrew command copied."}</span></div>;
+  return (
+    <div className="cw-brew">
+      <div className="cw-brew-heading"><span><span aria-hidden="true">⌘</span> Install with Homebrew</span><button type="button" onClick={copy} aria-label="Copy both Homebrew install commands">{message === "Copied" ? "Copied ✓" : "Copy commands"}</button></div>
+      {/* Keyboard focus lets users scroll long commands on narrow screens. */}
+      {/* eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex */}
+      <div className="cw-brew-scroll" role="region" tabIndex={0} aria-label="Homebrew installation commands"><pre className="cw-brew-command"><code>{command}</code></pre></div>
+      <span className="cw-copy-status sr-only" role="status" aria-live="polite">{message === "Copied" ? "Both Homebrew commands copied." : message}</span>
+      {message && message !== "Copied" && <p className="cw-copy-error">{message}</p>}
+    </div>
+  );
 }
