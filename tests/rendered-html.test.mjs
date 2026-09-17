@@ -62,7 +62,7 @@ test("Cloudwake has its own rendered content, metadata, and real setup destinati
   assert.match(html, /rel="canonical" href="https:\/\/pratikmahalle.com\/cloudwake"/);
   assert.match(html, /property="og:image" content="https:\/\/pratikmahalle.com\/cloudwake\/icon.png"/);
   assert.match(html, /name="twitter:card" content="summary"/);
-  assert.match(html, /href="https:\/\/github.com\/pratik-mahalle\/infralive\/releases\/download\/v0.3.2\/Cloudwake-0.3.2-macos-arm64.zip"/);
+  assert.match(html, /href="https:\/\/github.com\/pratik-mahalle\/infralive\/releases\/download\/v0.3.3\/Cloudwake-0.3.3-macos-arm64.zip"/);
   assert.match(html, /Illustrative demo data/);
   assert.match(html, /brew tap pratik-mahalle\/tap/);
   assert.match(html, /brew install --cask pratik-mahalle\/tap\/cloudwake/);
