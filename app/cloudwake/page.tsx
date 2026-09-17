@@ -4,7 +4,7 @@ import { ProductPreview } from "./ProductPreview";
 import { BrewCommand } from "./BrewCommand";
 
 const repo = "https://github.com/pratik-mahalle/infralive";
-const download = `${repo}/releases/download/v0.3.1/Cloudwake-0.3.1-macos-arm64.zip`;
+const download = `${repo}/releases/download/v0.3.2/Cloudwake-0.3.2-macos-arm64.zip`;
 const title = "Cloudwake — Find the AWS spend you can do without";
 const description = "AWS spending, resource changes, and savings in your Mac menu bar. Know what your team created and what is sitting unused. Optional monitoring keeps watch while your Mac sleeps.";
 
