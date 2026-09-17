@@ -4,8 +4,8 @@ import { ProductPreview } from "./ProductPreview";
 import { BrewCommand } from "./BrewCommand";
 
 const repo = "https://github.com/pratik-mahalle/infralive";
-const release = `${repo}/releases/tag/v1.1.0`;
-const download = `${repo}/releases/download/v1.1.0/Cloudwake-1.1.0-macos-arm64.zip`;
+const release = `${repo}/releases/tag/v1.1.1`;
+const download = `${repo}/releases/download/v1.1.1/Cloudwake-1.1.1-macos-arm64.zip`;
 const title = "Cloudwake — Find the AWS spend you can do without";
 const description = "AWS spending, resource changes, and savings in your Mac menu bar. Know what your team created and what is sitting unused. Optional monitoring keeps watch while your Mac sleeps.";
 
@@ -60,7 +60,7 @@ export default function CloudwakePage() {
           <div className="cw-actions"><a className="cw-button" href={download}>Download for Mac <span aria-hidden="true">↓</span></a><a className="cw-text-link" href="#the-app">See it in action <span aria-hidden="true">↘</span></a></div>
           <p className="cw-platform"><a href={`${repo}/blob/main/LICENSE`}>MIT licensed</a> · Apple silicon · macOS 13+</p>
           <BrewCommand />
-          <p className="cw-install-note"><a href={`${repo}/blob/main/docs/downloads.md`}>macOS installation notes</a> · Starts in demo mode</p>
+          <p className="cw-install-note"><a href={`${repo}/blob/main/docs/downloads.md`}>macOS installation notes</a> · Connect AWS on first launch</p>
         </section>
 
         <section className="cw-showcase cw-shell" id="the-app" aria-labelledby="cw-app-title">
@@ -71,14 +71,14 @@ export default function CloudwakePage() {
 
         <section className="cw-start cw-shell" id="install" aria-labelledby="cw-start-title">
           <div className="cw-start-heading"><p className="cw-eyebrow">LESS SETUP. MORE VISIBILITY.</p><h2 id="cw-start-title">From install<br />to insight.</h2><a className="cw-text-link" href={`${repo}/blob/main/docs/downloads.md`}>Read the setup guide <span aria-hidden="true">↗</span></a></div>
-          <ol className="cw-steps"><li><span>01</span><div><h3>Install Cloudwake.</h3><p>Use Homebrew or download the Mac app. Everything you need to run it is included.</p></div></li><li><span>02</span><div><h3>Have a look around.</h3><p>Explore spending, activity, and savings with the built-in demo.</p></div></li><li><span>03</span><div><h3>Connect your AWS account.</h3><p>Add your AWS accounts in Settings. Use profiles or paste credentials. SSO is optional.</p></div></li></ol>
+          <ol className="cw-steps"><li><span>01</span><div><h3>Install Cloudwake.</h3><p>Use Homebrew or download the Mac app. Everything you need to run it is included.</p></div></li><li><span>02</span><div><h3>Connect your AWS account.</h3><p>Account setup opens on first launch. Choose a profile or paste credentials. SSO is optional.</p></div></li><li><span>03</span><div><h3>Keep an eye on spending.</h3><p>See costs, resource changes, and savings. Connect more accounts whenever you need.</p></div></li></ol>
         </section>
 
         <aside className="cw-always cw-shell"><div><span className="cw-dot" /><h2>Mac asleep? Keep monitoring.</h2><p>Optional monitoring runs in your AWS account while you&apos;re away.</p></div><a className="cw-text-link" href={`${repo}/blob/main/docs/always-on.md`}>Always-on setup <span aria-hidden="true">↗</span></a></aside>
 
         <section className="cw-faq cw-shell" id="questions" aria-labelledby="cw-faq-title"><div><p className="cw-eyebrow">BEFORE YOU CONNECT</p><h2 id="cw-faq-title">A few details.</h2></div><div className="cw-questions">{questions.map(([question, answer]) => <details key={question}><summary>{question}<span aria-hidden="true">+</span></summary><p>{answer}</p></details>)}</div></section>
 
-        <section className="cw-final" aria-labelledby="cw-final-title"><div className="cw-shell"><div><p className="cw-eyebrow">A LITTLE LESS CLOUD WASTE</p><h2 id="cw-final-title">Make room for<br />what&apos;s worth running.</h2></div><div><a className="cw-button" href={download}>Get Cloudwake for Mac <span aria-hidden="true">↓</span></a><p>Free to download. Try the demo first.</p></div></div></section>
+        <section className="cw-final" aria-labelledby="cw-final-title"><div className="cw-shell"><div><p className="cw-eyebrow">A LITTLE LESS CLOUD WASTE</p><h2 id="cw-final-title">Make room for<br />what&apos;s worth running.</h2></div><div><a className="cw-button" href={download}>Get Cloudwake for Mac <span aria-hidden="true">↓</span></a><p>Free to download. Connect your AWS account.</p></div></div></section>
       </main>
 
       <footer className="cw-footer cw-shell"><a className="cw-brand" href="/cloudwake">Cloudwake<span className="cw-dot" /></a><p>Built by <Link href="/">Pratik Mahalle</Link></p><div><a href={repo}>Source ↗</a><a href={`${repo}/issues`}>Feedback ↗</a></div></footer>
