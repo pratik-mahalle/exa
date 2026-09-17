@@ -3,9 +3,9 @@ import Link from "next/link";
 import { ProductPreview } from "./ProductPreview";
 import { BrewCommand } from "./BrewCommand";
 
-const repo = "https://github.com/pratik-mahalle/infralive";
-const release = `${repo}/releases/tag/v1.2.0`;
-const download = `${repo}/releases/download/v1.2.0/Cloudwake-1.2.0-macos-arm64.zip`;
+const repo = "https://github.com/pratik-mahalle/cloudwake-releases";
+const release = `${repo}/releases/tag/v1.2.1`;
+const download = `${repo}/releases/download/v1.2.1/Cloudwake-1.2.1-macos-arm64.zip`;
 const title = "Cloudwake — Find the AWS spend you can do without";
 const description = "AWS spending, resource changes, and savings in your Mac menu bar. Know what your team created and what is sitting unused. Optional monitoring keeps watch while your Mac sleeps.";
 
@@ -33,9 +33,9 @@ const questions = [
   ["Is this a live view of my AWS bill?", "It shows the latest collected Cost Explorer data, from the start of the UTC month through yesterday. AWS billing is delayed and can be revised. Charges before credits, credits, and net balance are shown separately, so a credit does not hide your spending."],
   ["Will it tell me who created a resource?", "Cloudwake reads CloudTrail management events in your configured regions and shows the AWS principal behind each change. When AWS records a deployment role, you see that role. It does not guess which human used it, and coverage is not a guarantee of every resource change."],
   ["How does it decide something is unused?", "It tracks repeated observations of unattached EBS volumes and eligible AWS Stop/Delete recommendations. By default, it alerts after seven days of unused observations. It also flags qualifying AWS savings estimates. A resource being old is not enough to call it unused."],
-  ["Does monitoring stop when I close my Mac?", "Local monitoring needs an awake Mac. With the optional always-on setup, the collector runs in your AWS account, checking activity every five minutes and costs every six hours by default. Alerts stay in your inbox while you are away. Native Mac banners require the app and Mac to be running."],
+  ["Does monitoring stop when I close my Mac?", "Local monitoring needs an awake Mac. With an existing always-on setup, the collector runs in your AWS account, checking activity every five minutes and costs every six hours by default. Alerts stay in your inbox while you are away. Native Mac banners require the app and Mac to be running. New cloud deployments require assisted setup."],
   ["Can Cloudwake change my infrastructure?", "Cloudwake observes your monitored infrastructure and offers evidence to review. It does not stop, resize, delete, or purchase resources for you. The optional cloud deployment creates its own monitoring resources and private state in your account."],
-  ["What does it cost, and what is supported?", "The download supports Apple silicon Macs running macOS 13+ and includes Python. The app is not Apple-notarized; macOS may ask you to approve it in Privacy & Security. Intel Macs can build from source. There is no Cloudwake subscription. AWS API calls and optional cloud monitoring can incur charges. AWS is the only supported cloud today."],
+  ["What does it cost, and what is supported?", "The download supports Apple silicon Macs running macOS 13+ and includes Python. The app is not Apple-notarized; macOS may ask you to approve it in Privacy & Security. Intel Macs are not currently supported. The current download is available at no charge. AWS API calls and optional cloud monitoring can incur charges. AWS is the only supported cloud today."],
 ];
 
 export default function CloudwakePage() {
@@ -47,18 +47,18 @@ export default function CloudwakePage() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/cloudwake/logo.svg" width="32" height="32" alt="" /><span>Cloudwake</span>
         </a>
-        <nav className="cw-nav" aria-label="Cloudwake navigation"><a href="#the-app">Explore the app</a><a href="#questions">FAQs</a><a href={repo}>GitHub ↗</a></nav>
+        <nav className="cw-nav" aria-label="Cloudwake navigation"><a href="#the-app">Explore the app</a><a href="#questions">FAQs</a><a href={repo}>Releases ↗</a></nav>
         <a className="cw-header-link" href={download}>Download <span aria-hidden="true">↓</span></a>
       </header>
 
       <main id="cloudwake-main">
         <section className="cw-hero cw-shell" aria-labelledby="cw-title">
-          <a className="cw-launch" href={release}><span className="cw-dot" aria-hidden="true" /><strong>v1 is live</strong><span>Free & open source</span><span aria-hidden="true">↗</span></a>
+          <a className="cw-launch" href={release}><span className="cw-dot" aria-hidden="true" /><strong>v1 is live</strong><span>Available for Mac</span><span aria-hidden="true">↗</span></a>
           <p className="cw-eyebrow"><span className="cw-dot" /> AWS COST MONITORING FOR MAC</p>
           <h1 id="cw-title">Find the AWS spend<br />you can <span>do without.</span></h1>
           <p className="cw-lead">See what your team launched, what it costs, and what&apos;s sitting idle. Across your AWS accounts, from one Mac menu bar.</p>
           <div className="cw-actions"><a className="cw-button" href={download}>Download for Mac <span aria-hidden="true">↓</span></a><a className="cw-text-link" href="#the-app">See it in action <span aria-hidden="true">↘</span></a></div>
-          <p className="cw-platform"><a href={`${repo}/blob/main/LICENSE`}>MIT licensed</a> · Apple silicon · macOS 13+</p>
+          <p className="cw-platform">Apple silicon · macOS 13+</p>
           <BrewCommand />
           <p className="cw-install-note"><a href={`${repo}/blob/main/docs/downloads.md`}>macOS installation notes</a> · Connect AWS on first launch</p>
         </section>
@@ -81,7 +81,7 @@ export default function CloudwakePage() {
         <section className="cw-final" aria-labelledby="cw-final-title"><div className="cw-shell"><div><p className="cw-eyebrow">A LITTLE LESS CLOUD WASTE</p><h2 id="cw-final-title">Make room for<br />what&apos;s worth running.</h2></div><div><a className="cw-button" href={download}>Get Cloudwake for Mac <span aria-hidden="true">↓</span></a><p>Free to download. Connect your AWS account.</p></div></div></section>
       </main>
 
-      <footer className="cw-footer cw-shell"><a className="cw-brand" href="/cloudwake">Cloudwake<span className="cw-dot" /></a><p>Built by <Link href="/">Pratik Mahalle</Link></p><div><a href={repo}>Source ↗</a><a href={`${repo}/issues`}>Feedback ↗</a></div></footer>
+      <footer className="cw-footer cw-shell"><a className="cw-brand" href="/cloudwake">Cloudwake<span className="cw-dot" /></a><p>Built by <Link href="/">Pratik Mahalle</Link></p><div><a href={repo}>Downloads ↗</a><a href={`${repo}/issues`}>Feedback ↗</a></div></footer>
     </div>
   );
 }
