@@ -4,7 +4,7 @@ import { ProductPreview } from "./ProductPreview";
 import { BrewCommand } from "./BrewCommand";
 
 const repo = "https://github.com/pratik-mahalle/infralive";
-const download = `${repo}/releases/download/v0.4.0/Cloudwake-0.4.0-macos-arm64.zip`;
+const download = `${repo}/releases/download/v1.0.0/Cloudwake-1.0.0-macos-arm64.zip`;
 const title = "Cloudwake — Find the AWS spend you can do without";
 const description = "AWS spending, resource changes, and savings in your Mac menu bar. Know what your team created and what is sitting unused. Optional monitoring keeps watch while your Mac sleeps.";
 
@@ -26,7 +26,7 @@ const questions = [
   ["How does it decide something is unused?", "It tracks repeated observations of unattached EBS volumes and eligible AWS Stop/Delete recommendations. By default, it alerts after seven days of unused observations. It also flags qualifying AWS savings estimates. A resource being old is not enough to call it unused."],
   ["Does monitoring stop when I close my Mac?", "Local monitoring needs an awake Mac. With the optional always-on setup, the collector runs in your AWS account, checking activity every five minutes and costs every six hours by default. Alerts stay in your inbox while you are away. Native Mac banners require the app and Mac to be running."],
   ["Can Cloudwake change my infrastructure?", "Cloudwake observes your monitored infrastructure and offers evidence to review. It does not stop, resize, delete, or purchase resources for you. The optional cloud deployment creates its own monitoring resources and private state in your account."],
-  ["What does it cost, and what is supported?", "The download supports Apple silicon Macs running macOS 13+ and includes Python. It is an early, unnotarized release; macOS may ask you to approve it in Privacy & Security. Intel Macs can build from source. There is no Cloudwake subscription. AWS API calls and optional cloud monitoring can incur charges. AWS is the only supported cloud today."],
+  ["What does it cost, and what is supported?", "The download supports Apple silicon Macs running macOS 13+ and includes Python. The app is not Apple-notarized; macOS may ask you to approve it in Privacy & Security. Intel Macs can build from source. There is no Cloudwake subscription. AWS API calls and optional cloud monitoring can incur charges. AWS is the only supported cloud today."],
 ];
 
 export default function CloudwakePage() {
@@ -50,7 +50,7 @@ export default function CloudwakePage() {
           <div className="cw-actions"><a className="cw-button" href={download}>Download for Mac <span aria-hidden="true">↓</span></a><a className="cw-text-link" href="#the-app">See it in action <span aria-hidden="true">↘</span></a></div>
           <p className="cw-platform">Free to download · Apple silicon · macOS 13+</p>
           <BrewCommand />
-          <p className="cw-install-note"><a href={`${repo}/blob/main/docs/downloads.md`}>Early release, not notarized</a> · Starts in demo mode</p>
+          <p className="cw-install-note"><a href={`${repo}/blob/main/docs/downloads.md`}>macOS installation notes</a> · Starts in demo mode</p>
         </section>
 
         <section className="cw-showcase cw-shell" id="the-app" aria-labelledby="cw-app-title">
@@ -61,7 +61,7 @@ export default function CloudwakePage() {
 
         <section className="cw-start cw-shell" id="install" aria-labelledby="cw-start-title">
           <div className="cw-start-heading"><p className="cw-eyebrow">LESS SETUP. MORE VISIBILITY.</p><h2 id="cw-start-title">From install<br />to insight.</h2><a className="cw-text-link" href={`${repo}/blob/main/docs/downloads.md`}>Read the setup guide <span aria-hidden="true">↗</span></a></div>
-          <ol className="cw-steps"><li><span>01</span><div><h3>Install Cloudwake.</h3><p>Use Homebrew or download the Mac app. Everything you need to run it is included.</p></div></li><li><span>02</span><div><h3>Have a look around.</h3><p>Explore spending, activity, and savings with the built-in demo.</p></div></li><li><span>03</span><div><h3>Connect your AWS profile.</h3><p>Select your profile in Settings and start monitoring your account.</p></div></li></ol>
+          <ol className="cw-steps"><li><span>01</span><div><h3>Install Cloudwake.</h3><p>Use Homebrew or download the Mac app. Everything you need to run it is included.</p></div></li><li><span>02</span><div><h3>Have a look around.</h3><p>Explore spending, activity, and savings with the built-in demo.</p></div></li><li><span>03</span><div><h3>Connect your AWS account.</h3><p>Choose a profile or paste credentials in Settings. SSO is optional.</p></div></li></ol>
         </section>
 
         <aside className="cw-always cw-shell"><div><span className="cw-dot" /><h2>Mac asleep? Keep monitoring.</h2><p>Optional monitoring runs in your AWS account while you&apos;re away.</p></div><a className="cw-text-link" href={`${repo}/blob/main/docs/always-on.md`}>Always-on setup <span aria-hidden="true">↗</span></a></aside>
