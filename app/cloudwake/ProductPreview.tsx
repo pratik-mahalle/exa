@@ -30,7 +30,7 @@ export function ProductPreview() {
         <figure className="cw-product">
           <div className="cw-menu-strip" aria-hidden="true"><span>9:41</span><span className="cw-menu-value">☁ &nbsp; $4,035.00</span></div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="cw-app-screen" src={`/cloudwake/${view.image}`} width="840" height="1280" loading="lazy" alt={`${view.alt}. Illustrative demo data.`} />
+          <img className="cw-app-screen" src={`/cloudwake/${view.image}`} width="880" height="1400" loading="lazy" alt={`${view.alt}. Illustrative demo data.`} />
           <figcaption>Actual app · Illustrative demo data</figcaption>
         </figure>
       </div>
