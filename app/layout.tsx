@@ -15,9 +15,9 @@ export async function generateMetadata(): Promise<Metadata> {
     title,
     description,
     icons: {
-      icon: [{ url: "/favicon.png", type: "image/png" }],
-      shortcut: "/favicon.png",
-      apple: "/favicon.png",
+      icon: [{ url: "/favicon.png?v=2", type: "image/png", sizes: "128x128" }],
+      shortcut: "/favicon.ico",
+      apple: "/favicon.png?v=2",
     },
     openGraph: { title, description, type: "website", images: [{ url: `${origin}/og.png`, width: 1200, height: 630, alt: "Pratik Mahalle — Open Source, Infrastructure and AI" }] },
     twitter: { card: "summary_large_image", title, description, images: [`${origin}/og.png`] },

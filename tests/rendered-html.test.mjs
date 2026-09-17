@@ -36,6 +36,7 @@ test("server-renders Pratik's portfolio and Trace launcher", async () => {
   assert.ok(mainNav);
   assert.doesNotMatch(mainNav, /cloudwake/i);
   assert.match(html, /aria-label="Ask Trace, Pratik&#x27;s sidekick"/);
+  assert.match(html, /rel="icon" href="\/favicon.png\?v=2" type="image\/png" sizes="128x128"/);
 });
 
 test("Trace covers the portfolio's main visitor questions", async () => {
@@ -62,6 +63,9 @@ test("Cloudwake has its own rendered content, metadata, and real setup destinati
   assert.match(html, /rel="canonical" href="https:\/\/pratikmahalle.com\/cloudwake"/);
   assert.match(html, /property="og:image" content="https:\/\/pratikmahalle.com\/cloudwake\/icon.png"/);
   assert.match(html, /name="twitter:card" content="summary"/);
+  assert.match(html, /rel="icon" href="\/cloudwake\/favicon-32.png" type="image\/png" sizes="32x32"/);
+  assert.match(html, /rel="shortcut icon" href="\/cloudwake\/favicon.ico"/);
+  assert.doesNotMatch(html, /href="\/favicon.png/);
   assert.match(html, /href="https:\/\/github.com\/pratik-mahalle\/infralive\/releases\/download\/v1.0.1\/Cloudwake-1.0.1-macos-arm64.zip"/);
   assert.match(html, /Illustrative demo data/);
   assert.match(html, /brew tap pratik-mahalle\/tap/);
@@ -74,4 +78,13 @@ test("Cloudwake has its own rendered content, metadata, and real setup destinati
   assert.match(html, /blob\/main\/LICENSE/);
   assert.doesNotMatch(html, /Native<\/b> SwiftUI app/);
   assert.equal((html.match(/<details/g) ?? []).length, 6);
+});
+
+test("favicon PNGs match their declared format and dimensions", async () => {
+  for (const [path, size] of [["favicon.png", 128], ["cloudwake/favicon-16.png", 16], ["cloudwake/favicon-32.png", 32]]) {
+    const data = await readFile(new URL(`../public/${path}`, import.meta.url));
+    assert.equal(data.subarray(0, 8).toString("hex"), "89504e470d0a1a0a", path);
+    assert.equal(data.readUInt32BE(16), size, path);
+    assert.equal(data.readUInt32BE(20), size, path);
+  }
 });

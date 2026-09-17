@@ -13,7 +13,14 @@ export const metadata: Metadata = {
   title,
   description,
   alternates: { canonical: "https://pratikmahalle.com/cloudwake" },
-  icons: { icon: "/cloudwake/logo.svg", apple: "/cloudwake/icon.png" },
+  icons: {
+    icon: [
+      { url: "/cloudwake/favicon-16.png", type: "image/png", sizes: "16x16" },
+      { url: "/cloudwake/favicon-32.png", type: "image/png", sizes: "32x32" },
+    ],
+    shortcut: "/cloudwake/favicon.ico",
+    apple: "/cloudwake/icon.png",
+  },
   openGraph: {
     title, description, type: "website", url: "https://pratikmahalle.com/cloudwake",
     images: [{ url: "https://pratikmahalle.com/cloudwake/icon.png", width: 1024, height: 1024, alt: "Cloudwake cloud and pulse logo" }],
