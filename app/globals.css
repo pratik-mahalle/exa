@@ -263,7 +263,7 @@ footer p { margin: 0; } footer p:nth-child(2) { text-align: center; } footer a {
 .cw-showcase-heading h2 { margin: 0; font-size: 1.15rem; letter-spacing: -.025em; font-weight: 550; }
 .cw-showcase-heading p { margin: 0; font-size: .75rem; color: var(--cw-muted); }
 .cw-tour { border: 1px solid #cedaca; border-radius: 12px; overflow: hidden; background: #e5edde; }
-.cw-preview-tabs { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); padding: 6px; gap: 5px; background: #f0f4ec; border-bottom: 1px solid #cedaca; }
+.cw-preview-tabs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 6px; gap: 5px; background: #f0f4ec; border-bottom: 1px solid #cedaca; }
 .cw-preview-tabs button { min-width: 0; text-align: left; padding: 15px 18px; background: transparent; color: #52634e; border: 0; border-radius: 6px; cursor: pointer; font-family: var(--sans); }
 .cw-preview-tabs button > span { display: block; margin-bottom: 5px; font-size: .6rem; }
 .cw-preview-tabs button > strong { display: block; font-size: .8rem; font-weight: 550; letter-spacing: -.015em; }

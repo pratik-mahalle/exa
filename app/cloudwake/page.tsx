@@ -64,7 +64,7 @@ export default function CloudwakePage() {
         </section>
 
         <section className="cw-showcase cw-shell" id="the-app" aria-labelledby="cw-app-title">
-          <div className="cw-showcase-heading"><h2 id="cw-app-title">Four questions. One small app.</h2><p>Take a look around.</p></div>
+          <div className="cw-showcase-heading"><h2 id="cw-app-title">Three questions. One small app.</h2><p>Take a look around.</p></div>
           <ProductPreview />
           <p className="cw-mockup-note">AWS billing data is delayed. Savings are estimates. Resource activity depends on CloudTrail coverage.</p>
         </section>
