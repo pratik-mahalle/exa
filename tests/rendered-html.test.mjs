@@ -66,7 +66,7 @@ test("Cloudwake has its own rendered content, metadata, and real setup destinati
   assert.match(html, /rel="icon" href="\/cloudwake\/favicon-32.png" type="image\/png" sizes="32x32"/);
   assert.match(html, /rel="shortcut icon" href="\/cloudwake\/favicon.ico"/);
   assert.doesNotMatch(html, /href="\/favicon.png/);
-  assert.match(html, /href="https:\/\/github.com\/pratik-mahalle\/infralive\/releases\/download\/v1.0.1\/Cloudwake-1.0.1-macos-arm64.zip"/);
+  assert.match(html, /href="https:\/\/github.com\/pratik-mahalle\/infralive\/releases\/download\/v1.1.0\/Cloudwake-1.1.0-macos-arm64.zip"/);
   assert.match(html, /Illustrative demo data/);
   assert.match(html, /brew tap pratik-mahalle\/tap/);
   assert.match(html, /brew install --cask pratik-mahalle\/tap\/cloudwake/);
@@ -74,10 +74,11 @@ test("Cloudwake has its own rendered content, metadata, and real setup destinati
   assert.match(html, /v1 is live/);
   assert.match(html, /Free &amp; open source/);
   assert.match(html, /MIT licensed/);
-  assert.match(html, /releases\/tag\/v1.0.1/);
+  assert.match(html, /Can I connect multiple AWS accounts/);
+  assert.match(html, /releases\/tag\/v1.1.0/);
   assert.match(html, /blob\/main\/LICENSE/);
   assert.doesNotMatch(html, /Native<\/b> SwiftUI app/);
-  assert.equal((html.match(/<details/g) ?? []).length, 6);
+  assert.equal((html.match(/<details/g) ?? []).length, 7);
 });
 
 test("favicon PNGs match their declared format and dimensions", async () => {
