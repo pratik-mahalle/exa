@@ -4,7 +4,8 @@ import { ProductPreview } from "./ProductPreview";
 import { BrewCommand } from "./BrewCommand";
 
 const repo = "https://github.com/pratik-mahalle/infralive";
-const download = `${repo}/releases/download/v1.0.0/Cloudwake-1.0.0-macos-arm64.zip`;
+const release = `${repo}/releases/tag/v1.0.1`;
+const download = `${repo}/releases/download/v1.0.1/Cloudwake-1.0.1-macos-arm64.zip`;
 const title = "Cloudwake — Find the AWS spend you can do without";
 const description = "AWS spending, resource changes, and savings in your Mac menu bar. Know what your team created and what is sitting unused. Optional monitoring keeps watch while your Mac sleeps.";
 
@@ -44,11 +45,12 @@ export default function CloudwakePage() {
 
       <main id="cloudwake-main">
         <section className="cw-hero cw-shell" aria-labelledby="cw-title">
+          <a className="cw-launch" href={release}><span className="cw-dot" aria-hidden="true" /><strong>v1 is live</strong><span>Free & open source</span><span aria-hidden="true">↗</span></a>
           <p className="cw-eyebrow"><span className="cw-dot" /> AWS COST MONITORING FOR MAC</p>
           <h1 id="cw-title">Find the AWS spend<br />you can <span>do without.</span></h1>
           <p className="cw-lead">See what your team launched, what it costs, and what&apos;s sitting idle. All from your Mac menu bar.</p>
           <div className="cw-actions"><a className="cw-button" href={download}>Download for Mac <span aria-hidden="true">↓</span></a><a className="cw-text-link" href="#the-app">See it in action <span aria-hidden="true">↘</span></a></div>
-          <p className="cw-platform">Free to download · Apple silicon · macOS 13+</p>
+          <p className="cw-platform"><a href={`${repo}/blob/main/LICENSE`}>MIT licensed</a> · Apple silicon · macOS 13+</p>
           <BrewCommand />
           <p className="cw-install-note"><a href={`${repo}/blob/main/docs/downloads.md`}>macOS installation notes</a> · Starts in demo mode</p>
         </section>

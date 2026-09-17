@@ -62,11 +62,16 @@ test("Cloudwake has its own rendered content, metadata, and real setup destinati
   assert.match(html, /rel="canonical" href="https:\/\/pratikmahalle.com\/cloudwake"/);
   assert.match(html, /property="og:image" content="https:\/\/pratikmahalle.com\/cloudwake\/icon.png"/);
   assert.match(html, /name="twitter:card" content="summary"/);
-  assert.match(html, /href="https:\/\/github.com\/pratik-mahalle\/infralive\/releases\/download\/v1.0.0\/Cloudwake-1.0.0-macos-arm64.zip"/);
+  assert.match(html, /href="https:\/\/github.com\/pratik-mahalle\/infralive\/releases\/download\/v1.0.1\/Cloudwake-1.0.1-macos-arm64.zip"/);
   assert.match(html, /Illustrative demo data/);
   assert.match(html, /brew tap pratik-mahalle\/tap/);
   assert.match(html, /brew install --cask pratik-mahalle\/tap\/cloudwake/);
   assert.match(html, /macOS installation notes/);
+  assert.match(html, /v1 is live/);
+  assert.match(html, /Free &amp; open source/);
+  assert.match(html, /MIT licensed/);
+  assert.match(html, /releases\/tag\/v1.0.1/);
+  assert.match(html, /blob\/main\/LICENSE/);
   assert.doesNotMatch(html, /Native<\/b> SwiftUI app/);
   assert.equal((html.match(/<details/g) ?? []).length, 6);
 });
