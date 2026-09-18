@@ -53,7 +53,7 @@ export default function CloudwakePage() {
 
       <main id="cloudwake-main">
         <section className="cw-hero cw-shell" aria-labelledby="cw-title">
-          <a className="cw-launch" href={release}><span className="cw-dot" aria-hidden="true" /><strong>v1 is live</strong><span>Available for Mac</span><span aria-hidden="true">↗</span></a>
+          <a className="cw-launch" href={release}><span className="cw-dot" aria-hidden="true" /><strong>v1.2.2 is live</strong><span>Meet the new Mac panel</span><span aria-hidden="true">↗</span></a>
           <p className="cw-eyebrow"><span className="cw-dot" /> AWS COST MONITORING FOR MAC</p>
           <h1 id="cw-title">Find the AWS spend<br />you can <span>do without.</span></h1>
           <p className="cw-lead">See what your team launched, what it costs, and what&apos;s sitting idle. Across your AWS accounts, from one Mac menu bar.</p>

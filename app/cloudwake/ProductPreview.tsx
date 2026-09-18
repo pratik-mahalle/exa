@@ -3,9 +3,9 @@
 import { useRef, useState } from "react";
 
 const views = [
-  { name: "Spending", question: "Where’s it going?", title: "The whole bill.\nThe useful details.", description: "See month-to-date charges, your forecast, and the services driving the bill. Credits stay separate, so they don’t hide your spending.", detail: "Month-to-date · Daily spend · By service", image: "overview.png", alt: "Cloudwake showing month-to-date costs, forecast, daily spend, and costs by AWS service" },
-  { name: "Activity", question: "Who created that?", title: "New resource.\nNow you know.", description: "Follow resource changes and the AWS identity behind them. Spot a new instance or database before it becomes a surprise on the bill.", detail: "CloudTrail events · AWS identities · Notifications", image: "changes.png", alt: "Cloudwake showing example resource creation events and the AWS principals responsible" },
-  { name: "Savings", question: "Still being used?", title: "Find what’s idle.\nDecide what goes.", description: "Get alerts for resources observed sitting unused. Review AWS savings recommendations and their estimates before making a change.", detail: "Unused-resource alerts · Estimated savings", image: "savings.png", alt: "Cloudwake showing example unused resources and estimated monthly savings" },
+  { name: "Spending", question: "Where’s it going?", title: "The whole bill.\nThe useful details.", description: "See month-to-date charges, your forecast, and the services driving the bill. Credits stay separate, so they don’t hide your spending.", detail: "Month-to-date · Daily spend · By service", image: "overview-v1.2.2.png", alt: "Cloudwake showing month-to-date costs, forecast, daily spend, and costs by AWS service" },
+  { name: "Activity", question: "Who created that?", title: "New resource.\nNow you know.", description: "Follow resource changes and the AWS identity behind them. Spot a new instance or database before it becomes a surprise on the bill.", detail: "CloudTrail events · AWS identities · Notifications", image: "changes-v1.2.2.png", alt: "Cloudwake showing example resource creation events and the AWS principals responsible" },
+  { name: "Savings", question: "Still being used?", title: "Find what’s idle.\nDecide what goes.", description: "Get alerts for resources observed sitting unused. Review AWS savings recommendations and their estimates before making a change.", detail: "Unused-resource alerts · Estimated savings", image: "savings-v1.2.2.png", alt: "Cloudwake showing example unused resources and estimated monthly savings" },
 ];
 
 export function ProductPreview() {
@@ -30,8 +30,8 @@ export function ProductPreview() {
         <figure className="cw-product">
           <div className="cw-menu-strip" aria-hidden="true"><span>9:41</span><span className="cw-menu-value">☁ &nbsp; $4,035.00</span></div>
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="cw-app-screen" src={`/cloudwake/${view.image}`} width="880" height="1400" loading="lazy" alt={`${view.alt}. Illustrative demo data.`} />
-          <figcaption>Actual app · Illustrative demo data</figcaption>
+          <img className="cw-app-screen" src={`/cloudwake/${view.image}`} width="780" height="1240" loading="lazy" alt={`${view.alt}. Illustrative demo data.`} />
+          <figcaption>Cloudwake v1.2.2 · Illustrative demo data</figcaption>
         </figure>
       </div>
     </div>

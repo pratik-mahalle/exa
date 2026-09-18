@@ -71,8 +71,8 @@ test("Cloudwake has its own rendered content, metadata, and real setup destinati
   assert.match(html, /brew tap pratik-mahalle\/tap/);
   assert.match(html, /brew install --cask pratik-mahalle\/tap\/cloudwake/);
   assert.match(html, /macOS installation notes/);
-  assert.match(html, /v1 is live/);
-  assert.match(html, /Available for Mac/);
+  assert.match(html, /v1\.2\.2 is live/);
+  assert.match(html, /Meet the new Mac panel/);
   assert.doesNotMatch(html, /MIT licensed|Free &amp; open source|Intel Macs can build from source/);
   assert.match(html, /Can I connect multiple AWS accounts/);
   assert.match(html, /Connect AWS on first launch/);
