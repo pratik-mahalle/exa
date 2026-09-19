@@ -1,10 +1,30 @@
-export const articles = [
+export type Article = {
+  title: string;
+  excerpt: string;
+  date: string;
+  topic: string;
+  href: string;
+  platform: "Medium" | "X";
+  xHref?: string;
+};
+
+export const articles: Article[] = [
+  {
+    title: "Why Context Windows Won’t Solve AI Agent Memory",
+    excerpt: "Why long-running agents need selective, versioned memory — with retrieval, provenance, and a way to forget stale information — even as context windows grow.",
+    date: "Sep 7, 2026",
+    topic: "Agent memory",
+    href: "https://x.com/pratikstwts/status/2096875562597847250",
+    platform: "X",
+  },
   {
     title: "An AI Agent Without Context Is a Fighter Jet Without Radar",
     excerpt: "Why capable agents still fail inside specialized domains — and what changes when context becomes structured, inspectable infrastructure.",
     date: "Aug 13, 2026",
     topic: "Context engineering",
     href: "https://pratikmahalle.medium.com/an-ai-agent-without-context-is-a-fighter-jet-without-radar-a0a1375d65cc",
+    platform: "Medium",
+    xHref: "https://x.com/pratikstwts/status/2088185126710898733",
   },
   {
     title: "Your Build Isn’t Slow. Your Runner Queue Is.",
@@ -12,6 +32,7 @@ export const articles = [
     date: "Jul 21, 2026",
     topic: "CI/CD",
     href: "https://pratikmahalle.medium.com/your-build-isnt-slow-your-runner-queue-is-d58977317c37",
+    platform: "Medium",
   },
   {
     title: "Why Most Internal Developer Platforms Fail",
@@ -19,6 +40,16 @@ export const articles = [
     date: "Jul 12, 2026",
     topic: "Platform engineering",
     href: "https://pratikmahalle.medium.com/platform-as-a-product-treating-your-internal-developer-platform-like-a-customer-facing-one-f99cc3dac190",
+    platform: "Medium",
+    xHref: "https://x.com/pratikstwts/status/2076299276666511664",
+  },
+  {
+    title: "World models are the next AI race. Infrastructure is missing from it.",
+    excerpt: "What infrastructure could learn from world models: moving beyond dependency graphs to simulate failures, predict cascades, and explore what happens next.",
+    date: "Jul 10, 2026",
+    topic: "AI & infrastructure",
+    href: "https://x.com/pratikstwts/status/2075459951166988430",
+    platform: "X",
   },
   {
     title: "Bazel 9 Migration: How to Get Faster Builds Before the Bzlmod Refactor",
@@ -26,6 +57,7 @@ export const articles = [
     date: "Feb 17, 2026",
     topic: "Build systems",
     href: "https://pratikmahalle.medium.com/bazel-9-migration-how-to-get-faster-builds-before-the-bzlmod-refactor-d9591cd4f0fb",
+    platform: "Medium",
   },
   {
     title: "Why AOSP Builds Take Forever",
@@ -33,6 +65,7 @@ export const articles = [
     date: "Jan 22, 2026",
     topic: "AOSP",
     href: "https://pratikmahalle.medium.com/why-aosp-builds-take-forever-and-what-you-can-actually-do-about-it-c077c40797ee",
+    platform: "Medium",
   },
 ];
 
@@ -47,6 +80,7 @@ export type Talk = {
   badge: string;
   image?: string;
   imageAlt?: string;
+  linkLabel?: string;
 };
 
 export const talks: Talk[] = [
@@ -89,10 +123,13 @@ export const talks: Talk[] = [
     event: "OpenSearch Project Nagpur × Cloud Native Nagpur",
     date: "Sep 5, 2026",
     description: "How keyword, vector, and hybrid search can turn operational data into structured context that helps AI agents move from an alert toward a credible root cause.",
-    href: "https://www.meetup.com/opensearch-project-nagpur/",
+    href: "https://www.linkedin.com/feed/update/urn:li:activity:7502716773255987200/",
     color: "lime",
-    status: "Upcoming",
-    badge: "NEXT",
+    status: "Past",
+    badge: "TALK",
+    linkLabel: "View meetup recap",
+    image: "/talks/opensearch-nagpur.jpg",
+    imageAlt: "Pratik presenting how OpenSearch helps AI agents at the Nagpur meetup",
   },
   {
     title: "AAIF Agentic AI Pune Connect",

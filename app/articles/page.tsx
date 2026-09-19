@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteNav } from "../components/SiteNav";
 import { articles } from "../content";
+import styles from "./articles.module.css";
 
 export const metadata: Metadata = {
   title: "Articles — Pratik Mahalle",
@@ -22,20 +23,25 @@ export default function ArticlesPage() {
 
         <section className="articles-page-list" aria-label="Articles">
           {articles.map((article, index) => (
-            <a className="article-row" href={article.href} key={article.title} target="_blank" rel="noreferrer">
+            <article className="article-row" key={article.title}>
               <span className="article-number">{String(index + 1).padStart(2, "0")}</span>
               <div className="article-copy">
                 <div className="article-meta"><span>{article.topic}</span><span>{article.date}</span></div>
-                <h2>{article.title}</h2>
+                <h2><a href={article.href} target="_blank" rel="noreferrer">{article.title}</a></h2>
                 <p>{article.excerpt}</p>
+                <div className={styles.links}>
+                  <a href={article.href} target="_blank" rel="noreferrer">Read on {article.platform} ↗</a>
+                  {article.xHref && <a href={article.xHref} target="_blank" rel="noreferrer">Also on X ↗</a>}
+                </div>
               </div>
               <span className="article-arrow" aria-hidden="true">↗</span>
-            </a>
+            </article>
           ))}
         </section>
 
-        <div className="page-end-link">
-          <a href="https://pratikmahalle.medium.com" target="_blank" rel="noreferrer">Read everything on Medium ↗</a>
+        <div className={styles.publications}>
+          <a href="https://pratikmahalle.medium.com" target="_blank" rel="noreferrer">More on Medium ↗</a>
+          <a href="https://x.com/pratikstwts/articles" target="_blank" rel="noreferrer">More on X ↗</a>
         </div>
       </div>
     </main>

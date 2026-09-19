@@ -28,7 +28,7 @@ export default function TalksPage() {
         <div className="talk-meta"><span>{talk.event}</span><span>{talk.date}</span></div>
         <h2>{talk.title}</h2>
         <p>{talk.description}</p>
-        <span className="talk-link">View session <b aria-hidden="true">↗</b></span>
+        <span className="talk-link">{talk.linkLabel ?? "View session"} <b aria-hidden="true">↗</b></span>
       </div>
     </a>
   );
