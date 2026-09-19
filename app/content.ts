@@ -51,6 +51,18 @@ export type Talk = {
 
 export const talks: Talk[] = [
   {
+    title: "From Philosophy to DevRel with Diana Todea",
+    event: "After Hours by RelOps Studio",
+    date: "Episode 02",
+    description: "The second episode of After Hours, featuring Diana Todea on her journey from philosophy to developer relations.",
+    href: "https://youtu.be/Yz_kcYOWjdg",
+    color: "pink",
+    status: "Hosted",
+    badge: "HOST",
+    image: "/talks/after-hours-episode-02.jpg",
+    imageAlt: "After Hours episode 2: From Philosophy to DevRel with Diana Todea",
+  },
+  {
     title: "After Hours by RelOps Studio",
     event: "Hosted series",
     date: "Ongoing · 2026",
