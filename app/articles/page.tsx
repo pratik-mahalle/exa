@@ -1,6 +1,6 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteNav } from "../components/SiteNav";
+import { HomeLink } from "../components/HomeLink";
 import { articles } from "../content";
 import styles from "./articles.module.css";
 
@@ -15,7 +15,7 @@ export default function ArticlesPage() {
       <SiteNav current="articles" />
       <div className="inner-page-shell">
         <header className="inner-page-hero">
-          <Link className="back-link" href="/">← Back home</Link>
+          <HomeLink className="back-link">← Back home</HomeLink>
           <p className="section-index">WRITING / FIELD NOTES</p>
           <h1>Articles<span>.</span></h1>
           <p>Notes on infrastructure, developer platforms, AI-assisted operations, and the engineering decisions hiding beneath the surface.</p>

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { HomeLink } from "./HomeLink";
 
 type SiteNavProps = {
   current?: "home" | "articles" | "talks";
@@ -7,11 +7,11 @@ type SiteNavProps = {
 export function SiteNav({ current = "home" }: SiteNavProps) {
   return (
     <nav className="nav-wrap" aria-label="Main navigation">
-      <Link className="nav-mark" href="/" aria-label="Go to homepage">
+      <HomeLink className="nav-mark" aria-label="Go to homepage">
         PM<span className="mark-dot">.</span>
-      </Link>
+      </HomeLink>
       <div className="nav-links">
-        <Link href="/" aria-current={current === "home" ? "page" : undefined}>Home</Link>
+        <HomeLink aria-current={current === "home" ? "page" : undefined}>Home</HomeLink>
         <a href="/articles" aria-current={current === "articles" ? "page" : undefined}>Articles</a>
         <a href="/talks" aria-current={current === "talks" ? "page" : undefined}>Talks</a>
       </div>

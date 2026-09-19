@@ -1,6 +1,6 @@
-import Link from "next/link";
 import type { Metadata } from "next";
 import { SiteNav } from "../components/SiteNav";
+import { HomeLink } from "../components/HomeLink";
 import { talks } from "../content";
 
 export const metadata: Metadata = {
@@ -38,7 +38,7 @@ export default function TalksPage() {
       <SiteNav current="talks" />
       <div className="inner-page-shell">
         <header className="inner-page-hero talks-page-hero">
-          <Link className="back-link" href="/">← Back home</Link>
+          <HomeLink className="back-link">← Back home</HomeLink>
           <p className="section-index">HOSTING / STAGES / MEETUPS / VIDEO</p>
           <h1>Talks<span>.</span></h1>
           <p>Conversations and sessions about the systems we build, the failure modes we inherit, and the context that helps teams operate both.</p>

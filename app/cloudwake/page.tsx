@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { HomeLink } from "../components/HomeLink";
 import { ProductPreview } from "./ProductPreview";
 import { BrewCommand } from "./BrewCommand";
 
@@ -81,7 +81,7 @@ export default function CloudwakePage() {
         <section className="cw-final" aria-labelledby="cw-final-title"><div className="cw-shell"><div><p className="cw-eyebrow">A LITTLE LESS CLOUD WASTE</p><h2 id="cw-final-title">Make room for<br />what&apos;s worth running.</h2></div><div><a className="cw-button" href={download}>Get Cloudwake for Mac <span aria-hidden="true">↓</span></a><p>Free to download. Connect your AWS account.</p></div></div></section>
       </main>
 
-      <footer className="cw-footer cw-shell"><a className="cw-brand" href="/cloudwake">Cloudwake<span className="cw-dot" /></a><p>Built by <Link href="/">Pratik Mahalle</Link></p><div><a href={repo}>Downloads ↗</a><a href={`${repo}/issues`}>Feedback ↗</a></div></footer>
+      <footer className="cw-footer cw-shell"><a className="cw-brand" href="/cloudwake">Cloudwake<span className="cw-dot" /></a><p>Built by <HomeLink>Pratik Mahalle</HomeLink></p><div><a href={repo}>Downloads ↗</a><a href={`${repo}/issues`}>Feedback ↗</a></div></footer>
     </div>
   );
 }
