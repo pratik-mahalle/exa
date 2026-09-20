@@ -36,7 +36,7 @@ test("server-renders Pratik's portfolio and Trace launcher", async () => {
   assert.ok(mainNav);
   assert.doesNotMatch(mainNav, /cloudwake/i);
   assert.match(html, /aria-label="Ask Trace, Pratik&#x27;s sidekick"/);
-  assert.match(html, /rel="icon" href="\/favicon.png\?v=2" type="image\/png" sizes="128x128"/);
+  assert.match(html, /<link\b(?=[^>]*rel="icon")(?=[^>]*href="\/favicon.png\?v=2")(?=[^>]*type="image\/png")(?=[^>]*sizes="128x128")[^>]*>/);
 });
 
 test("Trace covers the portfolio's main visitor questions", async () => {
@@ -63,7 +63,7 @@ test("Cloudwake has its own rendered content, metadata, and real setup destinati
   assert.match(html, /rel="canonical" href="https:\/\/pratikmahalle.com\/cloudwake"/);
   assert.match(html, /property="og:image" content="https:\/\/pratikmahalle.com\/cloudwake\/icon.png"/);
   assert.match(html, /name="twitter:card" content="summary"/);
-  assert.match(html, /rel="icon" href="\/cloudwake\/favicon-32.png" type="image\/png" sizes="32x32"/);
+  assert.match(html, /<link\b(?=[^>]*rel="icon")(?=[^>]*href="\/cloudwake\/favicon-32.png")(?=[^>]*type="image\/png")(?=[^>]*sizes="32x32")[^>]*>/);
   assert.match(html, /rel="shortcut icon" href="\/cloudwake\/favicon.ico"/);
   assert.doesNotMatch(html, /href="\/favicon.png/);
   assert.match(html, /href="https:\/\/github.com\/pratik-mahalle\/cloudwake-releases\/releases\/download\/v1.2.2\/Cloudwake-1.2.2-macos-arm64.zip"/);
@@ -96,5 +96,32 @@ test("favicon PNGs match their declared format and dimensions", async () => {
     assert.equal(data.subarray(0, 8).toString("hex"), "89504e470d0a1a0a", path);
     assert.equal(data.readUInt32BE(16), size, path);
     assert.equal(data.readUInt32BE(20), size, path);
+  }
+});
+
+test("each public page renders one canonical and matching social metadata", async () => {
+  for (const path of ["/", "/articles", "/talks", "/cloudwake"]) {
+    const response = await render(path);
+    assert.equal(response.status, 200, path);
+    const html = await response.text();
+    const canonicals = [...html.matchAll(/<link rel="canonical" href="([^"]+)"/g)].map((match) => match[1]);
+    assert.deepEqual(canonicals.map((url) => new URL(url).href), [`https://pratikmahalle.com${path}`], path);
+    assert.ok(html.includes(`property="og:url" content="${canonicals[0]}"`), path);
+    const description = html.match(/<meta name="description" content="([^"]+)"/)?.[1];
+    assert.ok(description, path);
+    assert.ok(html.includes(`property="og:description" content="${description}"`), path);
+    assert.ok(html.includes(`name="twitter:description" content="${description}"`), path);
+    assert.match(html, /name="viewport" content="width=device-width, initial-scale=1"/);
+    for (const image of html.matchAll(/<img\b[^>]*>/g)) {
+      assert.match(image[0], /\balt="[^"]*"/, `${path}: missing alt attribute`);
+    }
+    if (path === "/") {
+      const json = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1];
+      assert.ok(json);
+      const graph = JSON.parse(json)["@graph"];
+      const profile = graph.find((item) => item["@type"] === "ProfilePage");
+      assert.equal(profile.mainEntity.name, "Pratik Mahalle");
+      for (const url of profile.mainEntity.sameAs) assert.ok(html.includes(`href="${url}"`));
+    }
   }
 });

@@ -1,4 +1,33 @@
 import { SiteNav } from "./components/SiteNav";
+import { portfolioMetadata, portfolioTitle, portfolioDescription, siteUrl } from "./seo";
+
+export const metadata = portfolioMetadata(portfolioTitle, portfolioDescription, "/");
+
+const profile = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite", "@id": `${siteUrl}/#website`,
+      url: `${siteUrl}/`, name: "Pratik Mahalle", inLanguage: "en",
+    },
+    {
+      "@type": "ProfilePage", "@id": `${siteUrl}/#profile`,
+      url: `${siteUrl}/`, name: portfolioTitle, description: portfolioDescription,
+      isPartOf: { "@id": `${siteUrl}/#website` },
+      mainEntity: {
+        "@type": "Person", "@id": `${siteUrl}/#person`,
+        name: "Pratik Mahalle", url: `${siteUrl}/`,
+        image: "https://avatars.githubusercontent.com/u/124587957?v=4",
+        description: "Open-source advocate building infrastructure, AI, and developer tools.",
+        sameAs: [
+          "https://in.linkedin.com/in/mahalle-pratik",
+          "https://x.com/pratikstwts",
+          "https://pratikmahalle.medium.com",
+        ],
+      },
+    },
+  ],
+};
 
 const projects = [
   {
@@ -40,6 +69,10 @@ const highlights = [
 export default function Home() {
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profile).replace(/</g, "\\u003c") }}
+      />
       <SiteNav current="home" />
 
       <div className="site-shell" id="top">

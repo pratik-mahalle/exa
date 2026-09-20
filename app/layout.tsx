@@ -1,28 +1,16 @@
 import type { Metadata } from "next";
-import { headers } from "next/headers";
 import { TraceSidekick } from "./components/TraceSidekick";
+import { portfolioMetadata, portfolioTitle, portfolioDescription } from "./seo";
 import "./globals.css";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const requestHeaders = await headers();
-  const host = requestHeaders.get("host") ?? "localhost:3000";
-  const protocol = requestHeaders.get("x-forwarded-proto") ?? (host.startsWith("localhost") ? "http" : "https");
-  const origin = `${protocol}://${host}`;
-  const title = "Pratik Mahalle — Open Source, Infrastructure & AI";
-  const description = "Portfolio of Pratik Mahalle, an open-source advocate building at the intersection of infrastructure, AI, and developer experience.";
-
-  return {
-    title,
-    description,
-    icons: {
-      icon: [{ url: "/favicon.png?v=2", type: "image/png", sizes: "128x128" }],
-      shortcut: "/favicon.ico",
-      apple: "/favicon.png?v=2",
-    },
-    openGraph: { title, description, type: "website", images: [{ url: `${origin}/og.png`, width: 1200, height: 630, alt: "Pratik Mahalle — Open Source, Infrastructure and AI" }] },
-    twitter: { card: "summary_large_image", title, description, images: [`${origin}/og.png`] },
-  };
-}
+export const metadata: Metadata = {
+  ...portfolioMetadata(portfolioTitle, portfolioDescription),
+  icons: {
+    icon: [{ url: "/favicon.png?v=2", type: "image/png", sizes: "128x128" }],
+    shortcut: "/favicon.ico",
+    apple: "/favicon.png?v=2",
+  },
+};
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return <html lang="en"><body>{children}<TraceSidekick /></body></html>;

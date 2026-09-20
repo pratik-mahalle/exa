@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
+import { portfolioMetadata } from "../seo";
 import { SiteNav } from "../components/SiteNav";
 import { HomeLink } from "../components/HomeLink";
 import { articles } from "../content";
 import styles from "./articles.module.css";
 
-export const metadata: Metadata = {
-  title: "Articles — Pratik Mahalle",
-  description: "Writing by Pratik Mahalle about platform engineering, AI agents, CI/CD, build systems, and open source.",
-};
+export const metadata = portfolioMetadata(
+  "Articles — Pratik Mahalle",
+  "Writing by Pratik Mahalle about platform engineering, AI agents, CI/CD, build systems, and open source.",
+  "/articles",
+);
 
 export default function ArticlesPage() {
   return (

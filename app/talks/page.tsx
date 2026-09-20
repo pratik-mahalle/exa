@@ -1,12 +1,13 @@
-import type { Metadata } from "next";
+import { portfolioMetadata } from "../seo";
 import { SiteNav } from "../components/SiteNav";
 import { HomeLink } from "../components/HomeLink";
 import { talks } from "../content";
 
-export const metadata: Metadata = {
-  title: "Talks — Pratik Mahalle",
-  description: "Conference talks and community sessions by Pratik Mahalle about AI agents, SRE, observability, Kubernetes, and API testing.",
-};
+export const metadata = portfolioMetadata(
+  "Talks — Pratik Mahalle",
+  "Conference talks and community sessions by Pratik Mahalle about AI agents, SRE, observability, Kubernetes, and API testing.",
+  "/talks",
+);
 
 export default function TalksPage() {
   const hostedSeries = talks.filter((talk) => talk.status === "Hosted");
