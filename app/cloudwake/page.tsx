@@ -6,8 +6,8 @@ import { BrewCommand } from "./BrewCommand";
 const repo = "https://github.com/pratik-mahalle/cloudwake-releases";
 const release = `${repo}/releases/tag/v1.2.2`;
 const download = `${repo}/releases/download/v1.2.2/Cloudwake-1.2.2-macos-arm64.zip`;
-const title = "Cloudwake — Find the AWS spend you can do without";
-const description = "AWS spending, resource changes, and savings in your Mac menu bar. Know what your team created and what is sitting unused. Optional monitoring keeps watch while your Mac sleeps.";
+const title = "Cloudwake — AWS Cost Monitoring for Mac";
+const description = "Monitor AWS costs from your Mac menu bar. Track spending across accounts, review resource changes, and find unused resources with Cloudwake. Free to download.";
 
 export const metadata: Metadata = {
   title,
@@ -28,6 +28,22 @@ export const metadata: Metadata = {
   twitter: { card: "summary", title, description, images: ["https://pratikmahalle.com/cloudwake/icon.png"] },
 };
 
+const softwareApplication = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://pratikmahalle.com/cloudwake#app",
+  name: "Cloudwake",
+  url: "https://pratikmahalle.com/cloudwake",
+  description,
+  applicationCategory: "DeveloperApplication",
+  operatingSystem: "macOS 13 or later (Apple silicon)",
+  softwareVersion: "1.2.2",
+  downloadUrl: download,
+  image: "https://pratikmahalle.com/cloudwake/icon.png",
+  author: { "@type": "Person", name: "Pratik Mahalle", url: "https://pratikmahalle.com/" },
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+};
+
 const questions = [
   ["Can I connect multiple AWS accounts?", "Yes. Add each account using its own AWS profile or pasted credentials, then switch accounts from the menu. Spending, activity, savings and inboxes stay separate. Other accounts keep monitoring, and notification banners identify the account. Local monitoring needs the app open and your Mac awake; optional always-on monitoring is configured separately for each account."],
   ["Is this a live view of my AWS bill?", "It shows the latest collected Cost Explorer data, from the start of the UTC month through yesterday. AWS billing is delayed and can be revised. Charges before credits, credits, and net balance are shown separately, so a credit does not hide your spending."],
@@ -41,6 +57,10 @@ const questions = [
 export default function CloudwakePage() {
   return (
     <div className="cloudwake-page" id="top">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareApplication).replace(/</g, "\\u003c") }}
+      />
       <a className="cw-skip" href="#cloudwake-main">Skip to content</a>
       <header className="cw-header cw-shell">
         <a className="cw-brand" href="/cloudwake" aria-label="Cloudwake home">

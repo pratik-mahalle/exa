@@ -59,7 +59,7 @@ test("Cloudwake has its own rendered content, metadata, and real setup destinati
   const response = await render("/cloudwake");
   assert.equal(response.status, 200);
   const html = await response.text();
-  assert.match(html, /<title>Cloudwake — Find the AWS spend you can do without<\/title>/);
+  assert.match(html, /<title>Cloudwake — AWS Cost Monitoring for Mac<\/title>/);
   assert.match(html, /rel="canonical" href="https:\/\/pratikmahalle.com\/cloudwake"/);
   assert.match(html, /property="og:image" content="https:\/\/pratikmahalle.com\/cloudwake\/icon.png"/);
   assert.match(html, /name="twitter:card" content="summary"/);
@@ -81,6 +81,13 @@ test("Cloudwake has its own rendered content, metadata, and real setup destinati
   assert.doesNotMatch(html, /github.com\/pratik-mahalle\/infralive/);
   assert.doesNotMatch(html, /Native<\/b> SwiftUI app/);
   assert.equal((html.match(/<details/g) ?? []).length, 7);
+  const appJson = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)?.[1];
+  assert.ok(appJson, "SoftwareApplication is present in server-rendered HTML");
+  const app = JSON.parse(appJson);
+  assert.equal(app["@type"], "SoftwareApplication");
+  assert.equal(app.url, "https://pratikmahalle.com/cloudwake");
+  assert.equal(app.offers.price, "0");
+  assert.ok(html.includes(`href="${app.downloadUrl}"`), "Schema and visible download agree");
 });
 
 test("favicon PNGs match their declared format and dimensions", async () => {
