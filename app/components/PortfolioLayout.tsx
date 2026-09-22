@@ -8,23 +8,14 @@ export function PortfolioLayout({ children }: { children: ReactNode }) {
   return (
     <div className={styles.shell} id="top">
       <a className={styles.skip} href="#main-content">Skip to content</a>
-      <aside className={styles.sidebar}>
-        <div className={styles.sidebarIdentity}><HomeLink section="about" className={styles.siteName}>Pratik Mahalle</HomeLink><p>Developer advocate &amp; builder</p></div>
-        <SiteNav />
-        <div className={styles.sidebarBottom}>
-          <p>Elsewhere</p>
-          <div className={styles.socialLinks}><a href="https://github.com/pratik-mahalle" target="_blank" rel="noreferrer">GitHub</a><a href="https://in.linkedin.com/in/mahalle-pratik" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://x.com/pratikstwts" target="_blank" rel="noreferrer">X</a></div>
-          <ThemeToggle />
-        </div>
-      </aside>
       <header className={styles.mobileHeader}>
         <HomeLink section="about">Pratik Mahalle</HomeLink>
-        <details><summary>Menu</summary><div className={styles.mobileMenu}><SiteNav /><ThemeToggle /></div></details>
+        <details><summary>Menu</summary><div className={styles.mobileMenu}><SiteNav /></div></details>
       </header>
       <div className={styles.page}>
         <main className={styles.content} id="main-content" tabIndex={-1}>
           {children}
-          <footer className={styles.footer}><p>© {new Date().getFullYear()} Pratik Mahalle</p><a href="#top">Back to top</a></footer>
+          <footer className={styles.footer}><p>© {new Date().getFullYear()} Pratik Mahalle</p><ThemeToggle /><a href="#top">Back to top</a></footer>
         </main>
         <aside className={styles.contents} aria-label="On this page">
           <p>Contents</p>
