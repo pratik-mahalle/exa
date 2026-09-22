@@ -80,7 +80,7 @@ const answerRules: AnswerRule[] = [
     patterns: [/\b(build|built|projects?|work|shipped?)\b/],
     answer: {
       text: "Pratik builds at the intersection of infrastructure, AI agents, observability, and developer experience. His recent work includes InfrAudit, OpsBot, k8s-mcp, and Failproof Chaos.",
-      href: "/#work",
+      href: "/#projects",
       linkLabel: "Explore selected work",
     },
   },
@@ -88,7 +88,7 @@ const answerRules: AnswerRule[] = [
     patterns: [/after hours/, /afterhours/, /relops/, /hosted series/],
     answer: {
       text: "After Hours by RelOps Studio is Pratik's candid conversation series about the parts of a tech career that rarely make the polished version.",
-      href: "/talks#after-hours",
+      href: "/#after-hours",
       linkLabel: "Meet the series",
     },
   },
@@ -104,7 +104,7 @@ const answerRules: AnswerRule[] = [
     patterns: [/\b(talks?|speaks?|speaker|conference|openssf)\b/, /community day/],
     answer: {
       text: "Pratik speaks about cloud-native systems, security, observability, AI, and the lessons hidden inside engineering failures.",
-      href: "/talks",
+      href: "/#talks",
       linkLabel: "See talks and appearances",
     },
   },
@@ -112,7 +112,7 @@ const answerRules: AnswerRule[] = [
     patterns: [/\b(writes?|writing|articles?|blog|read)\b/],
     answer: {
       text: "Pratik writes about infrastructure, developer relations, open source, and the practical side of building reliable systems.",
-      href: "/articles",
+      href: "/#articles",
       linkLabel: "Read his writing",
     },
   },

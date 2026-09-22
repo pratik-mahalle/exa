@@ -1,23 +1,54 @@
-import { HomeLink } from "./HomeLink";
+"use client";
 
-type SiteNavProps = {
-  current?: "home" | "articles" | "talks";
-};
+import { useEffect, useState } from "react";
+import styles from "../portfolio.module.css";
 
-export function SiteNav({ current = "home" }: SiteNavProps) {
+const sections = [
+  ["about", "About"],
+  ["work", "Work"],
+  ["projects", "Projects"],
+  ["open-source", "Community"],
+  ["articles", "Articles"],
+  ["talks", "Talks"],
+  ["after-hours", "After Hours"],
+  ["contact", "Contact"],
+];
+
+export function SiteNav() {
+  const [active, setActive] = useState("about");
+
+  useEffect(() => {
+    let frame = 0;
+    const update = () => {
+      const threshold = window.innerHeight * 0.25;
+      let current = "about";
+      for (const [id] of sections) {
+        if ((document.getElementById(id)?.getBoundingClientRect().top ?? Infinity) <= threshold) current = id;
+      }
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) current = "contact";
+      setActive(current);
+    };
+    const onScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(update);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
   return (
-    <nav className="nav-wrap" aria-label="Main navigation">
-      <HomeLink className="nav-mark" aria-label="Go to homepage">
-        PM<span className="mark-dot">.</span>
-      </HomeLink>
-      <div className="nav-links">
-        <HomeLink aria-current={current === "home" ? "page" : undefined}>Home</HomeLink>
-        <a href="/articles" aria-current={current === "articles" ? "page" : undefined}>Articles</a>
-        <a href="/talks" aria-current={current === "talks" ? "page" : undefined}>Talks</a>
-      </div>
-      <a className="nav-cta" href="mailto:mahallepratik683@gmail.com">
-        Let&apos;s talk <span aria-hidden="true">↗</span>
-      </a>
+    <nav className={styles.navigation} aria-label="Main navigation">
+      <ul>{sections.map(([id, label]) => (
+        <li key={id}><a href={`#${id}`} aria-current={active === id ? "location" : undefined} onClick={(event) => {
+          event.currentTarget.closest("details")?.removeAttribute("open");
+        }}>{label}</a></li>
+      ))}</ul>
     </nav>
   );
 }

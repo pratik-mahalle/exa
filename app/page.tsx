@@ -1,4 +1,7 @@
-import { SiteNav } from "./components/SiteNav";
+import { PortfolioLayout } from "./components/PortfolioLayout";
+import { projects } from "./projects/data";
+import styles from "./portfolio.module.css";
+import { articles, talks, type Talk } from "./content";
 import { portfolioMetadata, portfolioTitle, portfolioDescription, siteUrl } from "./seo";
 
 export const metadata = portfolioMetadata(portfolioTitle, portfolioDescription, "/");
@@ -29,139 +32,98 @@ const profile = {
   ],
 };
 
-const projects = [
-  {
-    number: "05", name: "Cloudwake", type: "AWS cost monitoring",
-    description: "AWS spending, resource activity, and savings in your Mac menu bar. Keep watching your account while your Mac sleeps.",
-    tags: ["AWS", "macOS", "Cost visibility"], href: "/cloudwake", color: "cloudwake",
-  },
-  {
-    number: "01", name: "InfrAudit", type: "Infrastructure intelligence",
-    description: "A practical way to inspect infrastructure, surface risk, and turn noisy findings into an actionable engineering view.",
-    tags: ["Platform", "Security", "Developer tooling"], href: "https://infraudit.com", color: "lime",
-  },
-  {
-    number: "02", name: "OpsBot", type: "AI for reliability",
-    description: "An AI-powered SRE agent designed to help teams investigate incidents and move from signals to useful answers faster.",
-    tags: ["AI agents", "SRE", "TypeScript"], href: "https://github.com/pratik-mahalle/opsbot", color: "orange",
-  },
-  {
-    number: "03", name: "k8s-mcp", type: "Cloud-native interface",
-    description: "A Kubernetes MCP experiment that makes cluster context easier for AI tools to understand and act on.",
-    tags: ["Kubernetes", "MCP", "Open source"], href: "https://github.com/pratik-mahalle/k8s-mcp", color: "blue",
-  },
-  {
-    number: "04", name: "Failproof Chaos", type: "AI safety tooling",
-    description: "A red-team harness for pressure-testing AI policies against adversarial and unexpected behavior.",
-    tags: ["Red teaming", "AI safety", "JavaScript"], href: "https://github.com/pratik-mahalle/failproof-chaos", color: "pink",
-  },
-];
-
-const highlights = [
-  "Building at the intersection of infrastructure, AI agents, and developer experience.",
-  "A member of the OpenTelemetry community, contributing to open-source observability.",
-  "Hosting After Hours by RelOps Studio — candid conversations about the parts of a tech career that rarely make the polished version.",
-  "Organised meetups and hackathons that brought Pune's developer community together.",
-  "Explaining complex infrastructure ideas through talks, writing, demos, and community work.",
-  "Exploring reliable interfaces between engineers, Kubernetes, and autonomous systems.",
-];
-
 export default function Home() {
   return (
-    <main>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(profile).replace(/</g, "\\u003c") }}
-      />
-      <SiteNav current="home" />
+    <PortfolioLayout>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(profile).replace(/</g, "\\u003c") }} />
+      <header className={styles.profileHeader} id="about">
+        <h1>Pratik Mahalle</h1>
+        <figure className={styles.portraitBlock}>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img className={styles.portrait} src="/portrait.jpg" alt="Pratik Mahalle" width={230} height={230} />
+        </figure>
+        <p>I’m Pratik, a developer advocate and builder.</p>
+        <p>I build tools, untangle infrastructure, and help developers make sense of both.</p>
+        <p>I don’t like AI. I just happen to work around it.</p>
+        <p>Pune roots. Building in Bengaluru.</p>
+      </header>
 
-      <div className="site-shell" id="top">
-        <header className="hero" aria-labelledby="hero-title">
-          <div className="portrait-wrap">
-            <div className="portrait-shadow" aria-hidden="true" />
-            <div className="portrait-frame">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="https://avatars.githubusercontent.com/u/124587957?v=4" alt="Pratik Mahalle" className="portrait-image" />
-              <span className="portrait-caption">Bengaluru, India · 12.97° N</span>
-            </div>
-            <span className="orbit-note orbit-note-one">open source</span>
-            <span className="orbit-note orbit-note-two">always building</span>
-          </div>
+      <section className={styles.section} id="work" aria-labelledby="work-title">
+        <h2 id="work-title">Work</h2>
+        <p>I’m a developer advocate at <a href="https://drdroid.io" target="_blank" rel="noreferrer">DrDroid</a>, working at the intersection of infrastructure, AI, and developer experience.</p>
+        <p>My work moves between building tools, explaining complicated systems, and helping developers put them to use. I write code, create demos, speak at meetups, and share what I learn along the way.</p>
+        <p>I’m most at home when the problem is messy, the system is distributed, and the useful answer still needs finding.</p>
+      </section>
 
-          <div className="hero-copy">
-            <p className="eyebrow"><span className="status-dot" /> Hey, I&apos;m</p>
-            <h1 id="hero-title">Pratik<br />Mahalle<span>.</span></h1>
-            <p className="identity-line">I don&apos;t like AI. I just happen to work around it.</p>
-            <p className="hero-line">Open-source advocate at <a href="https://drdroid.io" target="_blank" rel="noreferrer">DrDroid</a>, building useful things at the intersection of <strong>infrastructure × AI × developer experience.</strong></p>
-          </div>
-        </header>
+      <section className={styles.section} id="projects" aria-labelledby="projects-title">
+        <h2 id="projects-title">Projects</h2>
+        <p>Tools and experiments that started with a problem I wanted to understand better.</p>
+        <div className={styles.projectList}>{projects.map((project) => (
+          <article className={styles.project} key={project.name}>
+            <h3><a href={project.href} target={project.href.startsWith("/") ? undefined : "_blank"} rel={project.href.startsWith("/") ? undefined : "noreferrer"}>{project.name}</a></h3>
+            <p>{project.description}</p>
+            <p className={styles.meta}>{project.tags.join(" · ")}</p>
+          </article>
+        ))}</div>
+      </section>
 
-        <section className="intro-section" id="about">
-          <p className="section-index">01 / ABOUT</p>
-          <div className="intro-copy">
-            <p className="lead">I like turning complex infrastructure problems into products, stories, and tools that developers actually want to use.</p>
-            <div className="intro-grid">
-              <p>My work moves between platform engineering, DevRel, open source, and applied AI. I&apos;m most at home when the problem is messy, the system is distributed, and the useful answer still needs finding.</p>
-              <p>After organising meetups and hackathons with Pune&apos;s developer community, I&apos;m now based in Bengaluru — building with <a href="https://opentelemetry.io/" target="_blank" rel="noreferrer">OpenTelemetry</a>, experimenting with agentic tooling, and sharing what I learn.</p>
-            </div>
-          </div>
-        </section>
+      <section className={styles.section} id="open-source" aria-labelledby="open-source-title">
+        <h2 id="open-source-title">Open source &amp; community</h2>
+        <p>I’m a member of the <a href="https://opentelemetry.io/" target="_blank" rel="noreferrer">OpenTelemetry</a> community, contributing to open-source observability and learning from the people building it.</p>
+        <p>In Pune, I organised meetups and hackathons that brought developers together. I still enjoy the conversations that happen around a talk as much as the talk itself.</p>
+        <p>My interests include observability, cloud-native infrastructure, and how we give AI agents enough context to be useful. Most of my experiments start with a problem I’ve run into myself.</p>
+        <p>You’ll find my code on <a href="https://github.com/pratik-mahalle" target="_blank" rel="noreferrer">GitHub</a>.</p>
+      </section>
 
-        <section className="highlights-section" aria-labelledby="highlights-title">
-          <p className="section-index">A FEW THINGS</p>
-          <div>
-            <h2 id="highlights-title">So far, I&apos;ve been busy...</h2>
-            <ul className="highlights-list">
-              {highlights.map((item, index) => <li key={item}><span>{String(index + 1).padStart(2, "0")}</span><p>{item}</p></li>)}
-            </ul>
-          </div>
-        </section>
+      <section className={styles.section} id="articles" aria-labelledby="articles-title">
+        <h2 id="articles-title">Articles</h2>
+        <p>Writing about infrastructure, developer platforms, agent memory, and the decisions behind them.</p>
+        <div className={styles.articleList}>{articles.map((article) => (
+          <article className={styles.item} key={article.title}>
+            <p className={styles.meta}>{article.date} · {article.topic}</p>
+            <h3><a href={article.href} target="_blank" rel="noreferrer">{article.title}</a></h3>
+            <p>{article.excerpt}</p>
+            <p className={styles.sourceLinks}>
+              <a href={article.href} target="_blank" rel="noreferrer">Read on {article.platform} ↗</a>
+              {article.xHref && <a href={article.xHref} target="_blank" rel="noreferrer">Also on X ↗</a>}
+            </p>
+          </article>
+        ))}</div>
+      </section>
 
-        <section className="work-section" id="work" aria-labelledby="work-title">
-          <div className="section-heading">
-            <div><p className="section-index">02 / SELECTED WORK</p><h2 id="work-title">Things I&apos;ve shipped.</h2></div>
-            <p>Small tools, ambitious experiments, and infrastructure with opinions.</p>
-          </div>
-          <div className="project-grid">
-            {projects.map((project) => (
-              <a className={`project-card project-${project.color}`} href={project.href} key={project.name} target={project.href.startsWith("/") ? undefined : "_blank"} rel={project.href.startsWith("/") ? undefined : "noreferrer"}>
-                <div className="project-topline"><span>{project.number}</span><span>{project.type}</span><span className="project-arrow" aria-hidden="true">↗</span></div>
-                <div className="project-visual" aria-hidden="true">{project.name === "Cloudwake" ? (
-                  // eslint-disable-next-line @next/next/no-img-element
-                  <img src="/cloudwake/logo.svg" alt="" width="150" height="150" />
-                ) : <><span>{project.name.slice(0, 2).toUpperCase()}</span><i /></>}<b>{project.name === "Cloudwake" ? "MAC MENU BAR" : "RUNNING"}</b></div>
-                <h3>{project.name}</h3><p>{project.description}</p>
-                <div className="tag-row">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
-              </a>
-            ))}
-          </div>
-        </section>
+      <section className={styles.section} id="talks" aria-labelledby="talks-title">
+        <h2 id="talks-title">Talks</h2>
+        <p>Conference talks and community sessions on the systems we build and the ways they fail.</p>
+        {talks.filter((talk) => talk.status !== "Hosted").map((talk) => <TalkEntry key={talk.title} talk={talk} />)}
+        <p>Planning a meetup or conference? <a href="mailto:mahallepratik683@gmail.com?subject=Speaking%20invitation">Invite me to speak</a>.</p>
+      </section>
 
-        <section className="now-section" id="notes" aria-labelledby="now-title">
-          <p className="section-index">03 / RIGHT NOW</p>
-          <div className="now-copy">
-            <h2 id="now-title">Currently curious about...</h2>
-            <div className="ticker" aria-label="Current interests"><span>AI-native operations</span><i>✦</i><span>Observability</span><i>✦</i><span>Developer communities</span><i>✦</i><span>Reliable agents</span></div>
-            <p>How we give autonomous systems enough context to be useful — and enough guardrails to be trusted. I&apos;m writing code, breaking prototypes, and documenting the parts worth keeping.</p>
-          </div>
-        </section>
+      <section className={styles.section} id="after-hours" aria-labelledby="after-hours-title">
+        <h2 id="after-hours-title">After Hours</h2>
+        <p><strong>After Hours by RelOps Studio</strong> is my conversation series about the journeys, failures, and lessons that rarely make the polished version of a tech career.</p>
+        {talks.filter((talk) => talk.status === "Hosted").map((talk) => <TalkEntry key={talk.title} talk={talk} />)}
+      </section>
 
-        <section className="contact-section" id="contact">
-          <p className="section-index">04 / CONTACT</p>
-          <div>
-            <p className="contact-kicker">Have a hard infrastructure problem?</p>
-            <h2>Let&apos;s make it<br /><em>understandable.</em></h2>
-            <a className="contact-button" href="mailto:mahallepratik683@gmail.com">Start a conversation <span aria-hidden="true">↗</span></a>
-            <div className="contact-socials" aria-label="Contact and social links">
-              <a href="https://in.linkedin.com/in/mahalle-pratik" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a href="https://x.com/pratikstwts" target="_blank" rel="noreferrer">X / Twitter</a>
-              <a href="https://pratikmahalle.medium.com" target="_blank" rel="noreferrer">Medium</a>
-            </div>
-          </div>
-        </section>
+      <section className={styles.section} id="contact" aria-labelledby="contact-title">
+        <h2 id="contact-title">Contact me</h2>
+        <p><a href="mailto:mahallepratik683@gmail.com">Email me</a> about developer tools, open source, speaking, or something you’re building.</p>
+        <p>I’m also on <a href="https://in.linkedin.com/in/mahalle-pratik" target="_blank" rel="noreferrer">LinkedIn</a> and <a href="https://x.com/pratikstwts" target="_blank" rel="noreferrer">X</a>. More of my writing lives on <a href="https://pratikmahalle.medium.com" target="_blank" rel="noreferrer">Medium</a>.</p>
+      </section>
+    </PortfolioLayout>
+  );
+}
 
-        <footer><p>Pratik Mahalle © {new Date().getFullYear()}</p><p>Pune roots. Building in Bengaluru.</p><a href="#top">Back to top ↑</a></footer>
-      </div>
-    </main>
+function TalkEntry({ talk }: { talk: Talk }) {
+  return (
+    <article className={styles.talkItem}>
+      {talk.image && (
+        // eslint-disable-next-line @next/next/no-img-element
+        <img className={styles.talkImage} src={talk.image} alt={talk.imageAlt ?? ""} width={160} height={110} loading="lazy" />
+      )}
+      <p className={styles.meta}>{talk.status === "Upcoming" && <strong className={styles.upcoming}>Upcoming · </strong>}{talk.date} · {talk.event}</p>
+      <h3><a href={talk.href} target="_blank" rel="noreferrer">{talk.title}</a></h3>
+      <p>{talk.description}</p>
+      <p className={styles.sourceLinks}><a href={talk.href} target="_blank" rel="noreferrer">{talk.linkLabel ?? (talk.status === "Hosted" ? "Watch the episode" : "View session")} ↗</a></p>
+    </article>
   );
 }

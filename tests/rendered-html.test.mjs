@@ -30,7 +30,14 @@ test("server-renders Pratik's portfolio and Trace launcher", async () => {
 
   const html = await response.text();
   assert.match(html, /<title>Pratik Mahalle — Open Source, Infrastructure &amp; AI<\/title>/i);
-  assert.match(html, /Things I&#x27;ve shipped\./);
+  assert.match(html, /<h1>Pratik Mahalle<\/h1>/);
+  for (const id of ["about", "work", "projects", "open-source", "articles", "talks", "after-hours", "contact"]) {
+    assert.match(html, new RegExp(`href="#${id}"`));
+    assert.match(html, new RegExp(`id="${id}"`));
+  }
+  assert.match(html, /Yz_kcYOWjdg/);
+  assert.equal((html.match(/<img[^>]*src="\/talks\/opensearch-nagpur.jpg"/g) ?? []).length, 1);
+  assert.match(html, /id="open-source"/);
   assert.match(html, /Ask Trace/);
   const mainNav = html.match(/<nav[^>]*aria-label="Main navigation"[\s\S]*?<\/nav>/)?.[0];
   assert.ok(mainNav);
@@ -100,7 +107,7 @@ test("favicon PNGs match their declared format and dimensions", async () => {
 });
 
 test("each public page renders one canonical and matching social metadata", async () => {
-  for (const path of ["/", "/articles", "/talks", "/cloudwake"]) {
+  for (const path of ["/", "/cloudwake"]) {
     const response = await render(path);
     assert.equal(response.status, 200, path);
     const html = await response.text();
@@ -123,5 +130,13 @@ test("each public page renders one canonical and matching social metadata", asyn
       assert.equal(profile.mainEntity.name, "Pratik Mahalle");
       for (const url of profile.mainEntity.sameAs) assert.ok(html.includes(`href="${url}"`));
     }
+  }
+});
+
+test("old portfolio pages redirect to their sections", async () => {
+  for (const section of ["projects", "articles", "talks"]) {
+    const response = await render(`/${section}`);
+    assert.equal(response.status, 307);
+    assert.equal(response.headers.get("location"), `/#${section}`);
   }
 });
