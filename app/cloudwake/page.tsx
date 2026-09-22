@@ -81,6 +81,21 @@ export default function CloudwakePage() {
           <p className="cw-platform">Apple silicon · macOS 13+</p>
           <BrewCommand />
           <p className="cw-install-note"><a href={`${repo}/blob/main/docs/downloads.md`}>macOS installation notes</a> · Connect AWS on first launch</p>
+          <a
+            className="cw-peerlist"
+            href="https://peerlist.io/mahallepratik/project/cloudwake"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="View Cloudwake on Peerlist (opens in a new tab)"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="https://peerlist.io/api/v1/projects/embed/PRJH8OEQOPJB66ALGCPO8EOONA8KBG?showUpvote=false&theme=light"
+              alt="Cloudwake"
+              height={72}
+              style={{ width: "auto", height: 72 }}
+            />
+          </a>
         </section>
 
         <section className="cw-showcase cw-shell" id="the-app" aria-labelledby="cw-app-title">
