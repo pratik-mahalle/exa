@@ -25,6 +25,7 @@ const profile = {
         sameAs: [
           "https://in.linkedin.com/in/mahalle-pratik",
           "https://x.com/pratikstwts",
+          "https://www.instagram.com/pratiktwts/",
           "https://pratikmahalle.medium.com",
         ],
       },
@@ -107,7 +108,7 @@ export default function Home() {
       <section className={styles.section} id="contact" aria-labelledby="contact-title">
         <h2 id="contact-title">Contact me</h2>
         <p><a href="mailto:mahallepratik683@gmail.com">Email me</a> about developer tools, open source, speaking, or something you’re building.</p>
-        <p>I’m also on <a href="https://in.linkedin.com/in/mahalle-pratik" target="_blank" rel="noreferrer">LinkedIn</a> and <a href="https://x.com/pratikstwts" target="_blank" rel="noreferrer">X</a>. More of my writing lives on <a href="https://pratikmahalle.medium.com" target="_blank" rel="noreferrer">Medium</a>.</p>
+        <p>I’m also on <a href="https://in.linkedin.com/in/mahalle-pratik" target="_blank" rel="noreferrer">LinkedIn</a>, <a href="https://x.com/pratikstwts" target="_blank" rel="noreferrer">X</a>, and <a href="https://www.instagram.com/pratiktwts/" target="_blank" rel="noreferrer">Instagram</a>. More of my writing lives on <a href="https://pratikmahalle.medium.com" target="_blank" rel="noreferrer">Medium</a>.</p>
       </section>
     </PortfolioLayout>
   );
