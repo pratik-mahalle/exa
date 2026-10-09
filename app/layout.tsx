@@ -12,6 +12,14 @@ export const metadata: Metadata = {
   },
 };
 
+// Runs before paint so a saved dark theme does not flash light on each page load.
+const themeScript = `try{document.documentElement.dataset.portfolioTheme=localStorage.getItem("portfolio-theme")==="dark"?"dark":"light"}catch{}`;
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en"><body>{children}<TraceSidekick /></body></html>;
+  return (
+    <html lang="en" suppressHydrationWarning>
+      <head><script dangerouslySetInnerHTML={{ __html: themeScript }} /></head>
+      <body>{children}<TraceSidekick /></body>
+    </html>
+  );
 }
