@@ -85,6 +85,18 @@ export type Talk = {
 
 export const talks: Talk[] = [
   {
+    title: "Building Trust in an AI World with Ram Iyengar",
+    event: "After Hours by RelOps Studio",
+    date: "Episode 03",
+    description: "The third episode of After Hours, featuring Ram Iyengar on what it takes to build trust in an AI world.",
+    href: "https://youtu.be/LZ17YBvVjHg",
+    color: "pink",
+    status: "Hosted",
+    badge: "HOST",
+    image: "/talks/after-hours-episode-03.jpg",
+    imageAlt: "After Hours episode 3: Building Trust in an AI World with Ram Iyengar",
+  },
+  {
     title: "From Philosophy to DevRel with Diana Todea",
     event: "After Hours by RelOps Studio",
     date: "Episode 02",
