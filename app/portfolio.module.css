@@ -86,6 +86,16 @@
 .projectList + p { margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--rule); }
 .item h3 a { color: var(--link); }
 .meta { color: var(--quiet); font: 400 12px/1.6 "Portfolio Sans", Arial, sans-serif; }
+.timeline { position: relative; list-style: none; margin: 30px 0 0; padding: 0 0 0 30px; }
+.timeline::before { content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px; width: 1px; background: var(--rule); transform-origin: top; }
+.role { position: relative; }
+.role + .role { margin-top: 32px; }
+.role h3 { margin-bottom: 6px; }
+.role::before, .now::after { content: ""; position: absolute; left: -30px; top: 4px; width: 11px; height: 11px; box-sizing: border-box; border: 1px solid var(--link); border-radius: 50%; }
+.role::before { background: var(--page); transition: background-color .25s, transform .25s; }
+.now::before, .role:hover::before, .role:focus-within::before { background: var(--link); }
+.role:hover::before, .role:focus-within::before { transform: scale(1.2); }
+.now::after { opacity: 0; }
 .content .meta { margin: 0 0 10px; }
 .sourceLinks { display: flex; flex-wrap: wrap; gap: 10px 20px; font: 400 13px/1.6 "Portfolio Sans", Arial, sans-serif; }
 .content .sourceLinks { margin: 12px 0 0; }
@@ -145,4 +155,14 @@
 }
 @media (prefers-reduced-motion: reduce) {
   :global(html:has(.shell)) { scroll-behavior: auto; }
+}
+@keyframes work-rail { from { transform: scaleY(0); } }
+@keyframes work-rise { from { opacity: 0; translate: 0 14px; filter: blur(4px); } }
+@keyframes work-dot { from { scale: 0; } }
+@keyframes work-pulse { from { opacity: .6; scale: 1; } 70%, to { opacity: 0; scale: 2.8; } }
+@media (prefers-reduced-motion: no-preference) {
+  .timeline::before { animation: work-rail 1.2s cubic-bezier(.16, 1, .3, 1) both; }
+  .role { animation: work-rise .8s cubic-bezier(.16, 1, .3, 1) both; animation-delay: calc(var(--i, 0) * 130ms + 150ms); }
+  .role::before { animation: work-dot .5s cubic-bezier(.34, 1.56, .64, 1) both; animation-delay: calc(var(--i, 0) * 130ms + 150ms); }
+  .now::after { animation: work-pulse 2.4s ease-out calc(var(--i, 0) * 130ms + 900ms) infinite; }
 }

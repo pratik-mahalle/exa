@@ -10,6 +10,30 @@ export type Article = {
 
 export const articles: Article[] = [
   {
+    title: "Cilium Part 2: Writing Network Policies Without Breaking Your Cluster",
+    excerpt: "Locking down Cilium’s Star Wars demo one step at a time: rehearse a policy without breaking anything, allow only the traffic you need, and restrict an HTTP API.",
+    date: "Oct 19, 2026",
+    topic: "Kubernetes networking",
+    href: "https://pratikmahalle.medium.com/cilium-part-2-writing-network-policies-without-breaking-your-cluster-4d9d0701cba2",
+    platform: "Medium",
+  },
+  {
+    title: "What Cilium Is, and What It Actually Does With Your Packets",
+    excerpt: "What Cilium replaces in a Kubernetes cluster, how its eBPF datapath and identity-based security work, and where kube-proxy replacement, Hubble, and Cluster Mesh fit in.",
+    date: "Oct 16, 2026",
+    topic: "Kubernetes networking",
+    href: "https://pratikmahalle.medium.com/what-cilium-is-and-what-it-actually-does-with-your-packets-dc7adc264a90",
+    platform: "Medium",
+  },
+  {
+    title: "I Tried to Break Jostraca on the Second Run, and It Mostly Held Up",
+    excerpt: "Code generators earn their keep on the second run. I edited Jostraca’s output, changed its input, and ran it again to see what survived.",
+    date: "Oct 12, 2026",
+    topic: "Code generation",
+    href: "https://pratikmahalle.medium.com/i-tried-to-break-jostraca-on-the-second-run-and-it-mostly-held-up-22af57506e0b",
+    platform: "Medium",
+  },
+  {
     title: "Why Context Windows Won’t Solve AI Agent Memory",
     excerpt: "Why long-running agents need selective, versioned memory — with retrieval, provenance, and a way to forget stale information — even as context windows grow.",
     date: "Sep 7, 2026",

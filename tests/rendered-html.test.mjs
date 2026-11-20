@@ -31,10 +31,10 @@ test("server-renders Pratik's portfolio and Trace launcher", async () => {
   const html = await response.text();
   assert.match(html, /<title>Pratik Mahalle — Open Source, Infrastructure &amp; AI<\/title>/i);
   assert.match(html, /<h1>Pratik Mahalle<\/h1>/);
-  for (const href of ["/", "/projects", "/community", "/articles", "/talks", "/after-hours", "/contact"]) {
+  for (const href of ["/", "/work", "/projects", "/community", "/articles", "/talks", "/after-hours", "/contact"]) {
     assert.match(html, new RegExp(`href="${href}"`));
   }
-  assert.match(html, /DrDroid/);
+  assert.match(html, /founder of <a href="https:\/\/infraudit.com"/);
   assert.match(html, /Ask Trace/);
   const mainNav = html.match(/<nav[^>]*aria-label="Main navigation"[\s\S]*?<\/nav>/)?.[0];
   assert.ok(mainNav);
@@ -109,7 +109,7 @@ test("favicon PNGs match their declared format and dimensions", async () => {
 });
 
 test("each public page renders one canonical and matching social metadata", async () => {
-  for (const path of ["/", "/projects", "/community", "/articles", "/talks", "/after-hours", "/contact", "/cloudwake"]) {
+  for (const path of ["/", "/work", "/projects", "/community", "/articles", "/talks", "/after-hours", "/contact", "/cloudwake"]) {
     const response = await render(path);
     assert.equal(response.status, 200, path);
     const html = await response.text();
@@ -137,9 +137,10 @@ test("each public page renders one canonical and matching social metadata", asyn
 
 test("each section renders as its own page", async () => {
   const pages = {
+    "/work": /<h1 id="work-title">Work<\/h1>[\s\S]*href="https:\/\/infraudit.com"/,
     "/projects": /<h1 id="projects-title">Projects<\/h1>/,
     "/community": /Open source &amp; community<\/h1>/,
-    "/articles": /<h1 id="articles-title">Articles<\/h1>/,
+    "/articles": /<h1 id="articles-title">Articles<\/h1>[\s\S]*Cilium Part 2/,
     "/talks": /<img[^>]*src="\/talks\/opensearch-nagpur.jpg"/,
     "/after-hours": /LZ17YBvVjHg[\s\S]*Yz_kcYOWjdg/,
     "/contact": /<h1 id="contact-title">Contact me<\/h1>/,

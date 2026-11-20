@@ -2,6 +2,7 @@ import styles from "../portfolio.module.css";
 
 export const pages = [
   ["about", "About", "/"],
+  ["work", "Work", "/work"],
   ["projects", "Projects", "/projects"],
   ["community", "Community", "/community"],
   ["articles", "Articles", "/articles"],

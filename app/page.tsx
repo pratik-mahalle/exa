@@ -19,7 +19,7 @@ const profile = {
         "@type": "Person", "@id": `${siteUrl}/#person`,
         name: "Pratik Mahalle", url: `${siteUrl}/`,
         image: "https://avatars.githubusercontent.com/u/124587957?v=4",
-        description: "Open-source advocate building infrastructure, AI, and developer tools.",
+        description: "Founder of InfrAudit and open-source advocate building infrastructure, AI, and developer tools.",
         sameAs: [
           "https://in.linkedin.com/in/mahalle-pratik",
           "https://x.com/pratikstwts",
@@ -41,13 +41,14 @@ export default function Home() {
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className={styles.portrait} src="/portrait.jpg" alt="Pratik Mahalle" width={230} height={230} />
         </figure>
-        <p>I’m Pratik, a developer advocate and builder.</p>
+        <p>I’m Pratik, a founder and builder.</p>
         <p>I build tools, untangle infrastructure, and help developers make sense of both.</p>
         <p>I don’t like AI. I just happen to work around it.</p>
         <p>Pune roots. Building in Bengaluru.</p>
       </header>
       <section className={styles.section} aria-label="Work">
-        <p>I’m a developer advocate at <a href="https://drdroid.io" target="_blank" rel="noreferrer">DrDroid</a>, working at the intersection of infrastructure, AI, and developer experience.</p>
+        <p>I’m the founder of <a href="https://infraudit.com" target="_blank" rel="noreferrer">InfrAudit</a>, an AI security engineer for your cloud. It finds vulnerabilities and misconfigurations across your infrastructure, tells you what to fix first, and gets your team ready for compliance audits.</p>
+        <p>Before starting InfrAudit, I was a developer advocate at <a href="https://drdroid.io" target="_blank" rel="noreferrer">DrDroid</a>, working at the intersection of infrastructure, AI, and developer experience.</p>
         <p>I also run <a href="https://relops.studio" target="_blank" rel="noreferrer">RelOps Studio</a>, where I help startups with developer relations. It’s also home to <a href="/after-hours">After Hours</a>, my conversation series.</p>
         <p>I create content around AI and observability, and I love posting on <a href="https://x.com/pratikstwts" target="_blank" rel="noreferrer">X</a>.</p>
         <p>My work moves between building tools, explaining complicated systems, and helping developers put them to use. I write code, create demos, speak at meetups, and share what I learn along the way.</p>

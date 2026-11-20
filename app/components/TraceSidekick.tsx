@@ -29,7 +29,7 @@ const answerRules: AnswerRule[] = [
   {
     patterns: [/who is pratik/, /tell me about pratik/, /introduce pratik/, /what is pratik like/],
     answer: {
-      text: "Pratik is an open-source advocate, community builder, speaker, and enthusiastic breaker of prototypes. He turns complicated infrastructure ideas into tools and stories people can actually use.",
+      text: "Pratik is the founder of InfrAudit, an open-source advocate, community builder, speaker, and enthusiastic breaker of prototypes. He turns complicated infrastructure ideas into tools and stories people can actually use.",
       href: "/",
       linkLabel: "Meet Pratik",
     },
@@ -77,9 +77,9 @@ const answerRules: AnswerRule[] = [
     },
   },
   {
-    patterns: [/\b(build|built|projects?|work|shipped?)\b/],
+    patterns: [/\b(build|built|projects?|work|shipped?)\b/, /infra+udit/],
     answer: {
-      text: "Pratik builds at the intersection of infrastructure, AI agents, observability, and developer experience. His recent work includes InfrAudit, OpsBot, k8s-mcp, and Failproof Chaos.",
+      text: "Pratik builds at the intersection of infrastructure, AI agents, observability, and developer experience. He founded InfrAudit, an AI security engineer that finds vulnerabilities and gets teams ready for compliance. Other recent work includes OpsBot, k8s-mcp, and Failproof Chaos.",
       href: "/projects",
       linkLabel: "Explore selected work",
     },

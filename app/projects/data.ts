@@ -5,9 +5,9 @@ export const projects = [
     tags: ["AWS", "macOS", "Cost visibility"], href: "/cloudwake", color: "cloudwake",
   },
   {
-    number: "01", name: "InfrAudit", type: "Infrastructure intelligence",
-    description: "A practical way to inspect infrastructure, surface risk, and turn noisy findings into an actionable engineering view.",
-    tags: ["Platform", "Security", "Developer tooling"], href: "https://infraudit.com", color: "lime",
+    number: "01", name: "InfrAudit", type: "AI security engineer",
+    description: "My company. An AI security engineer that finds vulnerabilities in your cloud infrastructure and gets your team ready for compliance.",
+    tags: ["AI", "Security", "Compliance"], href: "https://infraudit.com", color: "lime",
   },
   {
     number: "02", name: "OpsBot", type: "AI for reliability",
